@@ -1,0 +1,8 @@
+const UV_PIE = {
+  LOAD: 'PIE_LOAD',
+  LOAD_SUCCESS: 'PIE_LOAD_SUCCESS',
+  LOAD_FAIL: 'PIE_LOAD_FAIL',
+  SELECT_SLICE: 'SELECT_SLICE'
+};
+
+export default UV_PIE;

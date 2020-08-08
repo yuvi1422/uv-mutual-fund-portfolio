@@ -1,0 +1,144 @@
+{
+  "general": {
+    "gitIcon": "/assets/github.png"
+  },
+  "categories": [
+    {
+      "id": 0,
+      "name": "Information Technology",
+      "value": 0,
+      "items": [
+        {
+          "name": "TCS",
+          "price": 1800,
+          "quantity": 1
+        },
+        {
+          "name": "Infosys",
+          "price": 800,
+          "quantity": 10
+        },
+        {
+          "name": "HCL",
+          "price": 500,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Finance",
+      "value": 0,
+      "color": "#1e487c",
+      "items": [
+        {
+          "name": "State Bank of India",
+          "price": 200,
+          "quantity": 20
+        },
+        {
+          "name": "Edelweiss",
+          "price": 100,
+          "quantity": 35
+        },
+        {
+          "name": "ICICI Bank",
+          "price": 400,
+          "quantity": 6
+        },
+        {
+          "name": "Kotak Mahindra Bank",
+          "price": 1500,
+          "quantity": 2
+        },
+        {
+          "name": "Bajaj Finance",
+          "price": 2500,
+          "quantity": 1
+        },
+        {
+          "name": "Bajaj Finserv",
+          "price": 4500,
+          "quantity": 1
+        },
+        {
+          "name": "IndusInd Bank",
+          "price": 500,
+          "quantity": 4
+        },
+        {
+          "name": "Bandhan Bank",
+          "price": 300,
+          "quantity": 5
+        },
+        {
+          "name": "Axis Bank",
+          "price": 450,
+          "quantity": 6
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Automobile",
+      "value": 0,
+      "color": "yellow",
+      "items": [
+        {
+          "name": "Ashok Leyland",
+          "price": 50,
+          "quantity": 100
+        },
+        {
+          "name": "Mahindra & Mahindra",
+          "price": 600,
+          "quantity": 5
+        },
+        {
+          "name": "Hero MotoCorp",
+          "price": 2500,
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pharma",
+      "value": 0,
+      "color": "green",
+      "items": []
+    },
+    {
+      "id": 4,
+      "name": "Petroleum",
+      "value": 0,
+      "color": "gray",
+      "items": [
+        {
+          "name": "Hindustan Petroleum",
+          "price": 200,
+          "quantity": 20
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Consumer Goods",
+      "value": 0,
+      "items": [
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sugar",
+      "value": 0,
+      "items": [
+        {
+          "name": "Ugar Sugar",
+          "price": 15,
+          "quantity": 300
+        }
+      ]
+    }
+  ]
+}
