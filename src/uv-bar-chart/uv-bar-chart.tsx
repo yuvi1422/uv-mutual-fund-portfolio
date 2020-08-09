@@ -16,7 +16,7 @@ am4core.useTheme(am4themes_animated);
 function UvBarChart() {
 
   let parentIndex = useSelector((state:any) => {
-    return state.barChart.parentIndex
+    return state.barChart.parentIndex;
   });
 
   parentIndex = uvString.isNumber(parentIndex) ? parentIndex : 0;

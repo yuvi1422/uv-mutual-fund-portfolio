@@ -1,12 +1,11 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import UV_PIE from './uv-pie-constants';
-import UV_BAR_CHART from './../uv-bar-chart/uv-bar-chart-constants';
+import { loadChart } from './../uv-bar-chart/uv-bar-chart-actions';
 
 function* selectSlice(data: any) {
-  yield put({
-    type: UV_BAR_CHART.LOAD,
-    parentIndex: data.sliceIndex
-  });
+  // Note: We can dispatch event using store dispatch but it's not recommended in generator by Redux Saga docs.
+  // put is most testable than store dispatch
+  yield put(loadChart(data.sliceIndex));
 }
 
 export function* uvPieSaga() {
