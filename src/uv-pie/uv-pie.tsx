@@ -20,10 +20,15 @@ function UvPie() {
 
   useLayoutEffect(() => {
 
+    let valueType = 'initial';
     function getSectorTotal(category:any) {
       let total = 0;
       for (const item of category.items) {
-        total += item.price * item.quantity;
+        if(category.isAmountOnly && item[valueType] && item[valueType].amount) {
+          total += item[valueType].amount;
+        } else if(item[valueType] && item[valueType].price && item[valueType].quantity){
+          total += item[valueType].price * item[valueType].quantity;
+        }
       }
       return total;
     }
@@ -70,7 +75,7 @@ function UvPie() {
       }
 
       series.labels.template.wrap = true;
-      series.labels.template.width = 150;
+      series.labels.template.width = 100;
 
       chart.current = uvChart as any;
     return () => {

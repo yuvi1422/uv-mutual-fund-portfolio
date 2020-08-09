@@ -9,6 +9,7 @@ import * as appData from './../uv-app-data.json';
 import './uv-bar-chart.css';
 import { useSelector } from 'react-redux';
 import uvString from '@uv-tech/util/lib/uv-string';
+import uvDevice from '@uv-tech/util/lib/uv-device';
 
 am4core.useTheme(am4themes_animated);
 
@@ -20,13 +21,19 @@ function UvBarChart() {
 
   parentIndex = uvString.isNumber(parentIndex) ? parentIndex : 0;
 
+  let parentValueType = 'initial';
+
   const chart = useRef(null);
 
   useLayoutEffect(() => {
 
     function getProcessedData(entries: any) {
       for (const entry of entries) {
-        entry.value = entry.price * entry.quantity;
+        if(!entry[parentValueType]) {
+          console.error('Data format is incorrect for bar chart');
+          return;
+        }
+        entry.value = entry[parentValueType].price * entry[parentValueType].quantity;
       }
       return entries;
     }
@@ -67,6 +74,10 @@ function UvBarChart() {
 
     series.columns.template.maxHeight =  50;
 
+    if(uvDevice.isMobileDevice()) {
+      categoryAxis.dataFields.category = 'shortName';
+      series.dataFields.categoryY = 'shortName';
+    }
     uvChart.data = getProcessedData(appData.categories[parentIndex].items);
 
     chart.current = uvChart as any;
@@ -74,7 +85,7 @@ function UvBarChart() {
     return () => {
       uvChart.dispose();
     };
-  }, [parentIndex]);
+  }, [parentIndex, parentValueType]);
 
   return (
     <div className="bar-chart-container">
