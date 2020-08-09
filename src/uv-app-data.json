@@ -5,138 +5,648 @@
   "categories": [
     {
       "id": 0,
-      "name": "Information Technology",
+      "name": "Liquid Fund",
       "value": 0,
+      "isAmountOnly": true,
       "items": [
         {
-          "name": "TCS",
-          "price": 1800,
-          "quantity": 1
+          "name": "Aditya Birla",
+          "shortName": "ABSL",
+          "initial": {
+            "amount": 10000,
+            "price": 10000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 10500,
+            "price": 10500,
+            "quantity": 1
+          },
+          "goal": "Daily Needs",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0.21,
+          "exitLoad": 0,
+          "fundManager": "Kaustubh Gupta",
+          "inceptionSince":"17/06/1997",
+          "returns": {
+            "1": 5.37,
+            "3": 6.46,
+            "5": 6.67,
+            "7": 7.01,
+            "all": 7.76
+          },
+          "rating": 3,
+          "firstInvestmentDate": "15/04/2020",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  36679.33,
+          "fundHouse": {
+            "name": "Aditya Birla Sun Life Mutual Fund",
+            "setupDate": "23/12/1994",
+            "assetValue": 249925.99
+          }
         },
         {
-          "name": "Infosys",
-          "price": 800,
-          "quantity": 10
+          "name": "Axis",
+          "shortName": "Axis",
+          "initial": {
+            "amount": 2000,
+            "price": 111,
+            "quantity": 111
+          },
+          "current": {
+            "amount": 3000,
+            "price": 111,
+            "quantity": 111
+          },
+          "goal": "Flat",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0.15,
+          "exitLoad": 0,
+          "fundManager": "Devang Shah",
+          "inceptionSince":"01/01/2013",
+          "returns": {
+            "1": 5.29,
+            "3": 6.38,
+            "5": 6.97,
+            "7": 7.7,
+            "all": 7.7
+          },
+          "rating": 3,
+          "firstInvestmentDate": "17/12/2019",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM": 31748.48,
+          "fundHouse": {
+            "name": "Axis Mutual Fund",
+            "setupDate": "04/09/1996",
+            "assetValue": 122867.23
+          }
         },
         {
-          "name": "HCL",
-          "price": 500,
-          "quantity": 5
+          "name": "DSP",
+          "shortName": "DSP",
+          "initial": {
+            "amount": 3000,
+            "price": 3000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 4000,
+            "price": 111,
+            "quantity": 111
+          },
+          "goal": "Flat",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0.14,
+          "exitLoad": 0,
+          "fundManager": "Kedar Karnik",
+          "inceptionSince":"01/01/2013",
+          "returns": {
+            "1": 5.17,
+            "3": 6.57,
+            "5": 6.93,
+            "7": 7.66,
+            "all": 7.66
+          },
+          "rating": 5,
+          "firstInvestmentDate": "02/04/2018",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM": 9667.95,
+          "fundHouse": {
+            "name": "DSP Mutual Fund",
+            "setupDate": "16/12/1996",
+            "assetValue": 77212.54
+          }
+        },
+        {
+          "name": "Edelweiss",
+          "shortName": "Edel",
+          "initial": {
+            "amount": 2000,
+            "price": 111,
+            "quantity": 111
+          },
+          "current": {
+            "amount": 2000.7,
+            "price": 111,
+            "quantity": 111
+          },
+          "goal": "Cycle",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0.11,
+          "exitLoad": 0,
+          "fundManager": "Gautam Kaul",
+          "inceptionSince":"21/09/2007",
+          "returns": {
+            "1": 5.37,
+            "3": 6.67,
+            "5": 6.78,
+            "7": 7.59,
+            "all": 7.59
+          },
+          "rating": 3,
+          "firstInvestmentDate": "20/06/2018",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM": 570.3,
+          "fundHouse": {
+            "name": "Edelweiss Mutual Fund",
+            "setupDate": "30/04/2008",
+            "assetValue": 12414.68
+          }
         }
       ]
     },
     {
       "id": 1,
-      "name": "Finance",
+      "name": "ETF",
       "value": 0,
+      "isAmountOnly": false,
       "color": "#1e487c",
-      "items": [
-        {
-          "name": "State Bank of India",
-          "price": 200,
-          "quantity": 20
-        },
-        {
-          "name": "Edelweiss",
-          "price": 100,
-          "quantity": 35
-        },
-        {
-          "name": "ICICI Bank",
-          "price": 400,
-          "quantity": 6
-        },
-        {
-          "name": "Kotak Mahindra Bank",
-          "price": 1500,
-          "quantity": 2
-        },
-        {
-          "name": "Bajaj Finance",
-          "price": 2500,
-          "quantity": 1
-        },
-        {
-          "name": "Bajaj Finserv",
-          "price": 4500,
-          "quantity": 1
-        },
-        {
-          "name": "IndusInd Bank",
-          "price": 500,
-          "quantity": 4
-        },
-        {
-          "name": "Bandhan Bank",
-          "price": 300,
-          "quantity": 5
-        },
-        {
-          "name": "Axis Bank",
-          "price": 450,
-          "quantity": 6
-        }
-      ]
+      "items": []
     },
     {
       "id": 2,
-      "name": "Automobile",
+      "name": "ELSS",
       "value": 0,
+      "isAmountOnly": false,
       "color": "yellow",
       "items": [
         {
-          "name": "Ashok Leyland",
-          "price": 50,
-          "quantity": 100
+          "name": "ABSL Tax Plan",
+          "shortName": "ABSL",
+          "initial": {
+            "amount": 111,
+            "price": 222,
+            "quantity": 5
+          },
+          "current": {
+            "amount": 333,
+            "price": 333,
+            "quantity": 5
+          },
+          "goal": "ABCD",
+          "minimumInvestment": {
+            "lumbsum": 111,
+            "sip": 111
+          },
+          "expenseRatio": 111,
+          "exitLoad": 111,
+          "fundManager": "ABCD",
+          "inceptionSince": "ABC",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "ABCD",
+          "AUM": 111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+		    },
+        {
+          "name": "ABSL Tax 96",
+          "shortName": "AB-96",
+          "initial": {
+            "amount": 2222,
+            "price": 2222,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 2500,
+            "price": 2500,
+            "quantity": 1
+          },
+          "goal": "ABCD",
+          "minimumInvestment": {
+            "lumbsum": 111,
+            "sip": 111
+          },
+          "expenseRatio": 111,
+          "exitLoad": 111,
+          "fundManager": "ABCD",
+          "inceptionSince": "ABC",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "ABCD",
+          "AUM": 111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+		    },
+        {
+          "name": "Axis Equity",
+          "shortName": "Axis",
+          "initial": {
+            "amount": 5000,
+            "price": 5000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 5500,
+            "price": 5500,
+            "quantity": 1
+          },
+          "goal": "ABCD",
+          "minimumInvestment": {
+            "lumbsum": 111,
+            "sip": 111
+          },
+          "expenseRatio": 111,
+          "exitLoad": 111,
+          "fundManager": "ABCD",
+          "inceptionSince": "ABC",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "ABCD",
+          "AUM": 111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+		    },
+        {
+          "name": "DSP Tax Saver",
+          "shortName": "DSP",
+          "initial": {
+            "amount": 1111,
+            "price": 1111,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 1111,
+            "price": 1111,
+            "quantity": 1
+          },
+          "goal": "Kid's Graduation",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0.95,
+          "exitLoad": 0,
+          "fundManager": "Rohit Singhania",
+          "inceptionSince":"01/01/2013",
+          "returns": {
+            "1": 4.78,
+            "3": 8.98,
+            "5": 7.9,
+            "7": 13.63,
+            "all": 13.63
+          },
+          "rating": 4,
+          "firstInvestmentDate": "28/12/2016",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM": 5788.51,
+          "fundHouse": {
+            "name": "DSP Mutual Fund",
+            "setupDate": "16/12/1996",
+            "assetValue": 77212.54
+          }
         },
         {
-          "name": "Mahindra & Mahindra",
-          "price": 600,
-          "quantity": 5
-        },
+          "name": "Franklin",
+          "shortName": "Fran",
+          "initial": {
+            "amount": 1111,
+            "price": 1111,
+            "quantity": 2
+          },
+          "current": {
+            "amount": 1222,
+            "price": 1222,
+            "quantity": 2
+          },
+          "goal": "ABCD",
+          "minimumInvestment": {
+            "lumbsum": 111,
+            "sip": 111
+          },
+          "expenseRatio": 111,
+          "exitLoad": 111,
+          "fundManager": "ABCD",
+          "inceptionSince": "ABC",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "ABCD",
+          "AUM": 111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+		    },
         {
-          "name": "Hero MotoCorp",
-          "price": 2500,
-          "quantity": 3
-        }
+          "name": "HFDC TaxSaver",
+          "shortName": "HDFC",
+          "initial": {
+            "amount": 111,
+            "price": 111,
+            "quantity": 10
+          },
+          "current": {
+            "amount": 111,
+            "price": 111,
+            "quantity": 10
+          },
+          "goal": "ABCD",
+          "minimumInvestment": {
+            "lumbsum": 111,
+            "sip": 111
+          },
+          "expenseRatio": 111,
+          "exitLoad": 111,
+          "fundManager": "ABCD",
+          "inceptionSince": "ABC",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "ABCD",
+          "AUM": 111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+		    }
       ]
     },
     {
       "id": 3,
-      "name": "Pharma",
+      "name": "Large Cap MF",
       "value": 0,
       "color": "green",
       "items": []
     },
     {
       "id": 4,
-      "name": "Petroleum",
+      "name": "Medium Cap MF",
       "value": 0,
       "color": "gray",
       "items": [
-        {
-          "name": "Hindustan Petroleum",
-          "price": 200,
-          "quantity": 20
-        }
       ]
     },
     {
       "id": 5,
-      "name": "Consumer Goods",
+      "name": "Small Cap MF",
       "value": 0,
       "items": [
       ]
     },
     {
       "id": 6,
-      "name": "Sugar",
+      "name": "Shares",
+      "value": 0,
+      "items": [
+
+      ]
+    },
+    {
+      "id": 7,
+      "name": "PPF & EPF",
       "value": 0,
       "items": [
         {
-          "name": "Ugar Sugar",
-          "price": 15,
-          "quantity": 300
+          "name": "PPF",
+          "shortName": "PPF",
+          "initial": {
+            "amount": 10000,
+            "price": 11111,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 11000,
+            "price": 11111,
+            "quantity": 1
+          },
+          "goal": "Retirement",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0,
+          "exitLoad": 0,
+          "fundManager": "Ministry of Finance",
+          "inceptionSince":"01/01/1968",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "25/07/2015",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  111,
+          "fundHouse": {
+            "name": "Ministry of Finance",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+        },
+        {
+          "name": "EPF-1",
+          "shortName": "EPF-1",
+          "initial": {
+            "amount": 12000,
+            "price": 12000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 13000,
+            "price": 13000,
+            "quantity": 1
+          },
+          "goal": "Retirement",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0,
+          "exitLoad": 0,
+          "fundManager": "ABCD",
+          "inceptionSince":"ABCD",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "25/11/2015",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+        },
+        {
+          "name": "EPF-2",
+          "shortName": "EPF-2",
+          "initial": {
+            "amount": 9000,
+            "price": 9000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 10000,
+            "price": 10000,
+            "quantity": 1
+          },
+          "goal": "Retirement",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0,
+          "exitLoad": 0,
+          "fundManager": "ABCD",
+          "inceptionSince":"ABCD",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "ABCD",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+        },
+        {
+          "name": "EPF-3",
+          "shortName": "EPF-3",
+          "initial": {
+            "amount": 7000,
+            "price": 7000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 8000,
+            "price": 8000,
+            "quantity": 1
+          },
+          "goal": "Retirement",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0,
+          "exitLoad": 0,
+          "fundManager": "ABCD",
+          "inceptionSince":"ABCD",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "20/09/2016",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
+        },
+        {
+          "name": "EPF-4",
+          "shortName": "EPF-4",
+          "initial": {
+            "amount": 15000,
+            "price": 15000,
+            "quantity": 1
+          },
+          "current": {
+            "amount": 16000,
+            "price": 16000,
+            "quantity": 1
+          },
+          "goal": "Retirement",
+          "minimumInvestment": {
+            "lumbsum": 500,
+            "sip": 500
+          },
+          "expenseRatio": 0,
+          "exitLoad": 0,
+          "fundManager": "ABCD",
+          "inceptionSince":"ABCD",
+          "returns": {
+            "1": 111,
+            "3": 111,
+            "5": 111,
+            "7": 111,
+            "all": 111
+          },
+          "rating": 111,
+          "firstInvestmentDate": "21/02/2018",
+          "tentetiveEndDate": "31/03/2040",
+          "AUM":  111,
+          "fundHouse": {
+            "name": "ABCD",
+            "setupDate": "ABCD",
+            "assetValue": 111
+          }
         }
       ]
     }
