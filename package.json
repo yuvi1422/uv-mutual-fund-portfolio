@@ -13,7 +13,7 @@
     "@types/node": "^12.12.53",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
-    "@uv-tech/util": "^1.0.0",
+    "@uv-tech/util": "^1.0.3",
     "bootstrap": "^4.5.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",

@@ -1,6 +1,19 @@
 {
-  "general": {
-    "gitIcon": "/assets/github.png"
+  "config": {
+    "chart": {
+      "innerRadiusPercent": 30
+    },
+    "series": {
+      "categoryKey": "name",
+      "fillColorKey": "color",
+      "animation": {
+        "endAngle": -90
+      }
+    },
+    "label": {
+      "wrap": true,
+      "width": 100
+    }
   },
   "categories": [
     {
