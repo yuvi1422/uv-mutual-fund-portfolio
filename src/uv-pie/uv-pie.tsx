@@ -21,9 +21,13 @@ am4core.useTheme(am4themes_animated);
 function UvPie() {
   const chart = useRef(null);
 
+  let pieConfig = useSelector((state: UVRootState) => {
+    return state.pie.config;
+  });
+
   let pieData = useSelector((state: UVRootState) => {
     return state.pie.data;
-  })
+  });
 
   useLayoutEffect(() => {
 
@@ -55,13 +59,13 @@ function UvPie() {
 
     uvChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    uvChart.data = getProcessedData(pieData.categories);
+    uvChart.data = getProcessedData(pieData);
 
       const series = uvChart.series.push(new am4charts.PieSeries3D());
 
       series.dataFields.value = 'value';
-      series.dataFields.category = pieData.config.series.categoryKey;
-      series.slices.template.propertyFields.fill = pieData.config.series.fillColorKey;
+      series.dataFields.category = pieConfig.series.categoryKey;
+      series.slices.template.propertyFields.fill = pieConfig.series.fillColorKey;
       series.slices.template.propertyFields.isActive = 'isActive';
       series.slices.template.propertyFields.id = 'id';
       uvChart.innerRadius = am4core.percent(uvObject.getObjectByPath(pieData, 'config.chsart', 'innerRadiusPercent', 0));
@@ -82,8 +86,8 @@ function UvPie() {
         series.labels.template.disabled = true;
       }
 
-      series.labels.template.wrap = pieData.config.label.wrap;
-      series.labels.template.width = pieData.config.label.width;
+      series.labels.template.wrap = pieConfig.label.wrap;
+      series.labels.template.width = pieConfig.label.width;
       // default startAngle is -90 and default endAngle is 270
       series.hiddenState.properties.endAngle = uvObject.getObjectByPath(pieData, 'config.series.animation', 'endAngle', 270);
 
@@ -92,7 +96,7 @@ function UvPie() {
     return () => {
       uvChart.dispose();
     };
-  }, [pieData]);
+  }, [pieConfig, pieData]);
 
   return (
     <div className="pie-container">

@@ -1,6 +1,7 @@
 import UV_PIE from './uv-pie-constants';
 
 const initialState = {
+  config: {},
   data: {
     default: {
       categories: []
@@ -13,7 +14,8 @@ const uvPieReducer = (state=initialState, action:any) => {
     case UV_PIE.LOAD:
       return {
         ...state,
-        data: action && action.data && action.data.default
+        config: action.config,
+        data: action.data
       }
     default:
       return state;

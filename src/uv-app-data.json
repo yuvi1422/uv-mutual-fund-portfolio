@@ -1,20 +1,5 @@
 {
-  "config": {
-    "chart": {
-      "innerRadiusPercent": 30
-    },
-    "series": {
-      "categoryKey": "name",
-      "fillColorKey": "color",
-      "animation": {
-        "endAngle": -90
-      }
-    },
-    "label": {
-      "wrap": true,
-      "width": 100
-    }
-  },
+  "config": {},
   "categories": [
     {
       "id": 0,
