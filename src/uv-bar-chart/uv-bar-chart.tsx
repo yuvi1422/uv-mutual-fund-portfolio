@@ -3,8 +3,6 @@ import React, { useLayoutEffect, useRef } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-import * as appData from './../uv-app-data.json';
-
 import './uv-bar-chart.css';
 import { useSelector } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
@@ -106,7 +104,7 @@ function UvBarChart() {
       categoryAxis.dataFields.category = barConfig.categoryShortKey;
       series.dataFields.categoryY = barConfig.categoryShortKey;
     }
-    uvChart.data = getProcessedData(appData.categories[parentProps.index].items);
+    uvChart.data = getProcessedData(barData[parentProps.index].items);
 
     chart.current = uvChart as any;
 

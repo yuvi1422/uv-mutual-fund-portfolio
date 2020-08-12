@@ -1,9 +1,9 @@
 import UV_BAR_CHART from './uv-bar-chart-constants';
 
-const initBarChart = (barChartData: any, barChartCategories: any) => {
+const initBarChart = (barChartConfig: any, barChartCategories: any) => {
   return {
     type: UV_BAR_CHART.INIT,
-    config: barChartData,
+    config: barChartConfig,
     data: barChartCategories
   };
 };

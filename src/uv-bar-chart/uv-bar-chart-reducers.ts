@@ -17,8 +17,8 @@ const uvBarChartReducer = (state=initialState, action:any) => {
     case UV_BAR_CHART.INIT:
       return {
         ...state,
-        config: action && action.config && action.config.default.config,
-        data: action && action.data && action.data.default
+        config: action.config,
+        data: action.data
       }
     case UV_BAR_CHART.UPDATE:
       return {

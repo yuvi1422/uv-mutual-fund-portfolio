@@ -20,4 +20,4 @@ export const uvStore = createStore(
 runAllSaga(sagaMiddleware);
 
 uvStore.dispatch(loadPie(appData));
-uvStore.dispatch(initBarChart(barChartData, appData.categories));
+uvStore.dispatch(initBarChart(barChartData.config, appData.categories));
