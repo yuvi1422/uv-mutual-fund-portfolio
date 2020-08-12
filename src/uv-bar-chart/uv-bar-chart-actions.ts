@@ -1,12 +1,21 @@
 import UV_BAR_CHART from './uv-bar-chart-constants';
 
-const loadBarChart = (index: number) => {
+const initBarChart = (barChartData: any, barChartCategories: any) => {
   return {
-    type: UV_BAR_CHART.LOAD,
+    type: UV_BAR_CHART.INIT,
+    config: barChartData,
+    data: barChartCategories
+  };
+};
+
+const updateBarChart = (index: number) => {
+  return {
+    type: UV_BAR_CHART.UPDATE,
     parentIndex: index
   };
 };
 
 export {
-  loadBarChart
+  initBarChart,
+  updateBarChart
 }

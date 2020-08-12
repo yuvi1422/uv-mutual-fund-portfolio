@@ -67,7 +67,7 @@
           "initial": {
             "amount": 2000,
             "price": 111,
-            "quantity": 111
+            "quantity": 1
           },
           "current": {
             "amount": 3000,
@@ -110,8 +110,8 @@
           },
           "current": {
             "amount": 4000,
-            "price": 111,
-            "quantity": 111
+            "price": 4000,
+            "quantity": 1
           },
           "goal": "Flat",
           "minimumInvestment": {
