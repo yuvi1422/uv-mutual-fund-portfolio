@@ -3,33 +3,37 @@ import React, { useLayoutEffect, useRef } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-import './uv-bar-chart.css';
 import { useSelector } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
+
+import './uv-bar-chart.css';
+import { UVRootState } from '../root-reducer';
+import UVItem from '../uv-interface.item';
+import UVAmount from '../uv-interface.amount';
 
 function UvBarChart() {
 
   let parentProps = {
-    index: useSelector((state:any) => {
+    index: useSelector((state: UVRootState) => {
       return state.barChart.parentIndex;
     }),
-    valueType: useSelector((state:any) => {
+    valueType: useSelector((state: UVRootState) => {
       return state.barChart.valueType;
     }),
-    isAmountOnly : useSelector((state:any) => {
+    isAmountOnly : useSelector((state: UVRootState) => {
       return state.barChart.isAmountOnly;
     }),
   };
 
-  const barData = useSelector((state:any) => {
+  const barData = useSelector((state: UVRootState) => {
     return state.barChart.data;
   });
 
-  const barConfig = useSelector((state:any) => {
+  const barConfig = useSelector((state: UVRootState) => {
     return state.barChart.config;
   });
 
-  const chart = useRef(null);
+  const chart = useRef({});
 
   useLayoutEffect(() => {
 
@@ -47,19 +51,20 @@ function UvBarChart() {
           }
       }
     };
-    function getProcessedData(entries: any) {
-      for (const entry of entries) {
-        if(!entry[parentProps.valueType]) {
+    function getProcessedData(items: UVItem[]) {
+      for (const item of items) {
+        const amountObj = item[parentProps.valueType] as UVAmount;
+        if(!item) {
           console.error('Data format is incorrect for bar chart');
           return;
         }
         if(parentProps.isAmountOnly) {
-          entry.value = entry[parentProps.valueType].amount;
+          item.value = amountObj.amount;
         } else {
-          entry.value = entry[parentProps.valueType].price * entry[parentProps.valueType].quantity;
+          item.value = amountObj.price * amountObj.quantity;
         }
       }
-      return entries;
+      return items;
     }
 
     const uvChart: am4charts.XYChart = am4core.create('barChartDiv', getChartDimensions(barConfig.dimension).chartType);
@@ -92,8 +97,9 @@ function UvBarChart() {
     labelBullet.locationX = 1;
 
     // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-    series.columns.template.adapter.add('fill', (fill, target: any) => {
-      return uvChart.colors.getIndex(target.dataItem.index);
+    series.columns.template.adapter.add('fill', (fill, target) => {
+      const dataItem = target.dataItem as am4core.DataItem;
+      return uvChart.colors.getIndex(dataItem.index);
     });
 
     categoryAxis.sortBySeries = series;
@@ -104,9 +110,9 @@ function UvBarChart() {
       categoryAxis.dataFields.category = barConfig.categoryShortKey;
       series.dataFields.categoryY = barConfig.categoryShortKey;
     }
-    uvChart.data = getProcessedData(barData[parentProps.index].items);
+    uvChart.data = getProcessedData(barData[parentProps.index].items) as UVItem[];
 
-    chart.current = uvChart as any;
+    chart.current = uvChart;
 
     return () => {
       uvChart.dispose();
