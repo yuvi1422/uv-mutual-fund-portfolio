@@ -1,0 +1,17 @@
+{
+  "config": {
+    "dimension": "3D",
+    "categoryKey": "name",
+    "categoryShortKey": "shortName",
+    "valueAxis": {
+      "min" : 0
+    },
+    "series": {
+      "column": {
+        "template": {
+          "maxHeight": 40
+        }
+      }
+    }
+  }
+}

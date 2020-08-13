@@ -6,3 +6,5 @@ export const rootReducer = combineReducers({
   pie: uvPieReducer,
   barChart: uvBarChartReducer
 });
+
+export type UVRootState = ReturnType<typeof rootReducer>

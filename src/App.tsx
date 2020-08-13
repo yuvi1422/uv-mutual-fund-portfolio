@@ -11,10 +11,10 @@ function App() {
     <div className="App">
       <Container>
         <Row>
-          <Col md={7} xs={12}>
+          <Col md={6} xs={12}>
             <UvPie></UvPie>
           </Col>
-          <Col md={5} xs={12}>
+          <Col md={6} xs={12}>
               <UvBarChart></UvBarChart>
           </Col>
         </Row>

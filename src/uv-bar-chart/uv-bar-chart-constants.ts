@@ -1,0 +1,7 @@
+const UV_BAR_CHART = {
+  INIT: 'INIT_BAR_CHART',
+  UPDATE: 'UPDATE_BAR_CHART',
+  SELECT: 'SELECT_BAR_CHART'
+};
+
+export default UV_BAR_CHART;
