@@ -3,9 +3,7 @@ import UV_PIE from './uv-pie-constants';
 const initialState = {
   config: {},
   data: {
-    default: {
-      categories: []
-    }
+    categories: []
   }
 };
 

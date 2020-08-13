@@ -14,6 +14,8 @@ import { selectSlice } from './uv-pie-actions';
 import './uv-pie.css';
 import { useSelector } from 'react-redux';
 import { UVRootState } from '../root-reducer';
+import UVCategory from '../uv-interface.category';
+import UVAmount from '../uv-interface.amount';
 
 am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
@@ -32,13 +34,15 @@ function UvPie() {
   useLayoutEffect(() => {
 
     let valueType = 'initial';
-    function getSectorTotal(category:any) {
+
+    function getSectorTotal(category: UVCategory) {
       let total = 0;
       for (const item of category.items) {
-        if(category.isAmountOnly && item[valueType] && item[valueType].amount) {
-          total += item[valueType].amount;
-        } else if(item[valueType] && item[valueType].price && item[valueType].quantity){
-          total += item[valueType].price * item[valueType].quantity;
+        let itemValue = item[valueType] as UVAmount;
+        if(category.isAmountOnly && itemValue && itemValue.amount) {
+          total += itemValue.amount;
+        } else if(itemValue && itemValue.price && itemValue.quantity){
+          total += itemValue.price * itemValue.quantity;
         }
       }
       return total;
@@ -72,7 +76,7 @@ function UvPie() {
 
       series.slices.template.events.on('hit', ((ev) => {
 
-        uvStore.dispatch(selectSlice(ev.target.id));
+        uvStore.dispatch(selectSlice(parseInt(ev.target.id)));
 
         series.slices.each(((item) => {
           if (item.isActive && item !== ev.target) {
