@@ -21,7 +21,7 @@ am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
 
 function UvPie() {
-  const chart = useRef(null);
+  const chart = useRef({});
 
   let pieConfig = useSelector((state: UVRootState) => {
     return state.pie.config;
@@ -48,7 +48,7 @@ function UvPie() {
       return total;
     }
 
-    function getProcessedData(sectors:any) {
+    function getProcessedData(sectors: UVCategory[]) {
       const processedSectors = [];
       for (const sector of sectors) {
         sector.value = getSectorTotal(sector);
@@ -95,7 +95,7 @@ function UvPie() {
       // default startAngle is -90 and default endAngle is 270
       series.hiddenState.properties.endAngle = uvObject.getObjectByPath(pieData, 'config.series.animation', 'endAngle', 270);
 
-      chart.current = uvChart as any;
+      chart.current = uvChart;
 
     return () => {
       uvChart.dispose();
