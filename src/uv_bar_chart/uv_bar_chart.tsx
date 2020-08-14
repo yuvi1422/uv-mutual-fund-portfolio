@@ -6,10 +6,10 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import { useSelector } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
-import './uv-bar-chart.css';
+import './uv_bar_chart.css';
 import { UVRootState } from '../root-reducer';
-import UVItem from '../uv-interface.item';
-import UVAmount from '../uv-interface.amount';
+import UVItem from '../uv_interface-item';
+import UVAmount from '../uv_interface-amount';
 
 function UvBarChart() {
 

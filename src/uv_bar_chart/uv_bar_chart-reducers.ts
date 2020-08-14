@@ -1,4 +1,4 @@
-import UV_BAR_CHART from './uv-bar-chart-constants';
+import UV_BAR_CHART from './uv_bar_chart-constants';
 
 const initialState = {
   parentIndex: 0,

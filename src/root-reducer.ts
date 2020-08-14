@@ -1,5 +1,5 @@
-import uvPieReducer from './uv-pie/uv-pie-reducers';
-import uvBarChartReducer from './uv-bar-chart/uv-bar-chart-reducers';
+import uvPieReducer from './uv_pie/uv_pie-reducers';
+import uvBarChartReducer from './uv_bar_chart/uv_bar_chart-reducers';
 import { combineReducers } from 'redux';
 
 export const rootReducer = combineReducers({

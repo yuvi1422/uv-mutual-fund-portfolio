@@ -1,6 +1,6 @@
-import UV_PIE from './uv-pie-constants';
-import UVPieConfig from './uv-interface.pie.config';
-import UVCategory from '../uv-interface.category';
+import UV_PIE from './uv_pie-constants';
+import UVPieConfig from './uv_pie-interface-config';
+import UVCategory from '../uv_interface-category';
 
 const loadPie = (pieConfig: UVPieConfig, pieCategories: UVCategory[]) => {
   return {

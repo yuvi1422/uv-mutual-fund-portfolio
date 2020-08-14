@@ -1,5 +1,5 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import UV_BAR_CHART from './uv-bar-chart-constants';
+import UV_BAR_CHART from './uv_bar_chart-constants';
 
 function* loadChart(data:any) {
   console.log('Bar Chart Data: ', data);

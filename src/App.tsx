@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import UvPie from './uv-pie/uv-pie';
-import UvBarChart from './uv-bar-chart/uv-bar-chart';
+import UvPie from './uv_pie/uv_pie';
+import UvBarChart from './uv_bar_chart/uv_bar_chart';
 
 function App() {
   return (

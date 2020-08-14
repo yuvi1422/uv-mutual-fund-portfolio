@@ -2,14 +2,14 @@ import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import * as appData from './uv-app-data.json';
-import * as pieData from './uv-pie/uv-pie.json';
-import * as barChartData from './uv-bar-chart/uv-bar-chart.json';
+import * as appData from './uv_app-data.json';
+import * as pieData from './uv_pie/uv_pie.json';
+import * as barChartData from './uv_bar_chart/uv_bar_chart.json';
 
 import { rootReducer } from './root-reducer';
 import { runAllSaga } from './root-sagas';
-import { loadPie } from './uv-pie/uv-pie-actions';
-import { initBarChart } from './uv-bar-chart/uv-bar-chart-actions';
+import { loadPie } from './uv_pie/uv_pie-actions';
+import { initBarChart } from './uv_bar_chart/uv_bar_chart-actions';
 
 const sagaMiddleware = createSagaMiddleware();
 
