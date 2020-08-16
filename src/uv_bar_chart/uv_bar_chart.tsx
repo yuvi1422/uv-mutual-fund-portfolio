@@ -14,9 +14,6 @@ import UVAmount from '../uv_interface-amount';
 function UvBarChart() {
 
   let parentProps = {
-    index: useSelector((state: UVRootState) => {
-      return state.barChart.parentIndex;
-    }),
     valueType: useSelector((state: UVRootState) => {
       return state.barChart.valueType;
     }),
@@ -110,7 +107,7 @@ function UvBarChart() {
       categoryAxis.dataFields.category = barConfig.categoryShortKey;
       series.dataFields.categoryY = barConfig.categoryShortKey;
     }
-    uvChart.data = getProcessedData(barData[parentProps.index].items) as UVItem[];
+    uvChart.data = getProcessedData(barData) as UVItem[];
 
     chart.current = uvChart;
 

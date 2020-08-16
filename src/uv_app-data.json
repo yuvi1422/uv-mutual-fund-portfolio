@@ -1,4 +1,7 @@
 {
+  "config": {
+    "initialIndex": 0
+  },
   "categories": [
     {
       "id": 0,

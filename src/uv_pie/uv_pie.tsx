@@ -76,7 +76,8 @@ function UvPie() {
 
       series.slices.template.events.on('hit', ((ev) => {
 
-        uvStore.dispatch(selectSlice(parseInt(ev.target.id)));
+        const sliceIndex = parseInt(ev.target.id);
+        uvStore.dispatch(selectSlice(sliceIndex, pieData[sliceIndex].items));
 
         series.slices.each(((item) => {
           if (item.isActive && item !== ev.target) {

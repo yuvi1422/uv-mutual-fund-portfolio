@@ -3,10 +3,10 @@ import UV_PIE from './uv_pie-constants';
 import { updateBarChart } from '../uv_bar_chart/uv_bar_chart-actions';
 import UVPieSelect from './uv_pie-interface-select';
 
-function* selectSlice(data: UVPieSelect) {
+function* selectSlice(pieSlice: UVPieSelect) {
   // Note: We can dispatch event using store dispatch but it's not recommended in generator by Redux Saga docs.
   // put is most testable than store dispatch
-  yield put(updateBarChart(data.sliceIndex));
+  yield put(updateBarChart(pieSlice.sliceIndex, pieSlice.data));
 }
 
 export function* uvPieSaga() {

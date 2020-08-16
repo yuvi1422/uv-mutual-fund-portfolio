@@ -21,4 +21,4 @@ export const uvStore = createStore(
 runAllSaga(sagaMiddleware);
 
 uvStore.dispatch(loadPie(pieData.config, appData.categories));
-uvStore.dispatch(initBarChart(barChartData.config, appData.categories));
+uvStore.dispatch(initBarChart(barChartData.config, appData.categories[appData.config.initialIndex].items));
