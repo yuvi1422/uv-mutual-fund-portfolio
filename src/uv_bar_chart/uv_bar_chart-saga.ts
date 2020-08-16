@@ -1,8 +1,9 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import UV_BAR_CHART from './uv-bar-chart-constants';
+import UV_BAR_CHART from './uv_bar_chart-constants';
+import UVAction from '../uv_interface-action';
 
-function* loadChart(data:any) {
-  console.log('Bar Chart Data: ', data);
+function* loadChart(chartData: UVAction) {
+  console.log('Bar Chart Data: ', chartData);
   yield put({
     type: 'BAR_CHART_DETAILS'
   });
