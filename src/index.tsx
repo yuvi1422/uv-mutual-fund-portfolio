@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 
-import { uvStore } from './uv-store';
+import { uvStore } from './uv_store';
 
 ReactDOM.render(
   <Provider store={uvStore}>

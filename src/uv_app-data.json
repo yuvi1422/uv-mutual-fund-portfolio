@@ -1,4 +1,7 @@
 {
+  "config": {
+    "initialIndex": 0
+  },
   "categories": [
     {
       "id": 0,
@@ -7,6 +10,7 @@
       "isAmountOnly": true,
       "items": [
         {
+          "id": 0,
           "name": "Aditya Birla",
           "shortName": "ABSL",
           "initial": {
@@ -46,6 +50,7 @@
           }
         },
         {
+          "id": 1,
           "name": "Axis",
           "shortName": "Axis",
           "initial": {
@@ -85,6 +90,7 @@
           }
         },
         {
+          "id": 2,
           "name": "DSP",
           "shortName": "DSP",
           "initial": {
@@ -124,6 +130,7 @@
           }
         },
         {
+          "id": 3,
           "name": "Edelweiss",
           "shortName": "Edel",
           "initial": {

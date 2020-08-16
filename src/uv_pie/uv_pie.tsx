@@ -8,14 +8,14 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
 
-import { uvStore } from './../uv-store';
-import { selectSlice } from './uv-pie-actions';
+import { uvStore } from '../uv_store';
+import { selectSlice } from './uv_pie-actions';
 
-import './uv-pie.css';
+import './uv_pie.css';
 import { useSelector } from 'react-redux';
 import { UVRootState } from '../root-reducer';
-import UVCategory from '../uv-interface.category';
-import UVAmount from '../uv-interface.amount';
+import UVCategory from '../uv_interface-category';
+import UVAmount from '../uv_interface-amount';
 
 am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
@@ -76,7 +76,8 @@ function UvPie() {
 
       series.slices.template.events.on('hit', ((ev) => {
 
-        uvStore.dispatch(selectSlice(parseInt(ev.target.id)));
+        const sliceIndex = parseInt(ev.target.id);
+        uvStore.dispatch(selectSlice(sliceIndex, pieData[sliceIndex].items));
 
         series.slices.each(((item) => {
           if (item.isActive && item !== ev.target) {

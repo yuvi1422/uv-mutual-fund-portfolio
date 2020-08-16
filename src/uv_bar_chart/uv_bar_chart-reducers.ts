@@ -1,10 +1,12 @@
-import UV_BAR_CHART from './uv-bar-chart-constants';
+import UV_BAR_CHART from './uv_bar_chart-constants';
+import UVAction from '../uv_interface-action';
 
 const initialState = {
-  parentIndex: 0,
   valueType: 'current',
   isAmountOnly: true,
-  config: {},
+  config: {
+    index: 0
+  },
   data: {
     default: {
       categories: []
@@ -12,7 +14,7 @@ const initialState = {
   }
 };
 
-const uvBarChartReducer = (state=initialState, action:any) => {
+const uvBarChartReducer = (state=initialState, action: UVAction) => {
   switch (action.type) {
     case UV_BAR_CHART.INIT:
       return {
@@ -21,10 +23,14 @@ const uvBarChartReducer = (state=initialState, action:any) => {
         data: action.data
       }
     case UV_BAR_CHART.UPDATE:
+      let tmpConfig = {...state.config};
+      tmpConfig.index = action.config.index;
       return {
         ...state,
-        parentIndex: action.parentIndex
-      }
+        config: tmpConfig,
+        data: action.data
+      };
+
     default:
       return state;
   }

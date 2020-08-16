@@ -6,17 +6,16 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import { useSelector } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
-import './uv-bar-chart.css';
+import './uv_bar_chart.css';
 import { UVRootState } from '../root-reducer';
-import UVItem from '../uv-interface.item';
-import UVAmount from '../uv-interface.amount';
+import UVItem from '../uv_interface-item';
+import UVAmount from '../uv_interface-amount';
+import { loadCategoryDetails } from './uv_bar_chart-actions';
+import { uvStore } from '../uv_store';
 
 function UvBarChart() {
 
   let parentProps = {
-    index: useSelector((state: UVRootState) => {
-      return state.barChart.parentIndex;
-    }),
     valueType: useSelector((state: UVRootState) => {
       return state.barChart.valueType;
     }),
@@ -89,6 +88,10 @@ function UvBarChart() {
     series.columns.template.column.cornerRadiusBottomRight = 5;
     series.columns.template.column.cornerRadiusTopRight = 5;
     series.columns.template.tooltipText = "{valueX}";
+    series.columns.template.propertyFields.id = 'id';
+    if(barConfig.series.column.template.cursorStyle === 'pointer') {
+      series.columns.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+    }
 
     const labelBullet = series.bullets.push(new am4charts.LabelBullet());
     labelBullet.label.horizontalCenter = 'left';
@@ -102,6 +105,10 @@ function UvBarChart() {
       return uvChart.colors.getIndex(dataItem.index);
     });
 
+    series.columns.template.events.on("hit", function(ev) {
+      uvStore.dispatch(loadCategoryDetails(barData[ev.target.id]));
+    });
+
     categoryAxis.sortBySeries = series;
 
     series.columns.template.maxHeight =  barConfig.series.column.template.maxHeight;
@@ -110,7 +117,7 @@ function UvBarChart() {
       categoryAxis.dataFields.category = barConfig.categoryShortKey;
       series.dataFields.categoryY = barConfig.categoryShortKey;
     }
-    uvChart.data = getProcessedData(barData[parentProps.index].items) as UVItem[];
+    uvChart.data = getProcessedData(barData) as UVItem[];
 
     chart.current = uvChart;
 

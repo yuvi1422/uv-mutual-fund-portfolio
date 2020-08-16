@@ -1,5 +1,6 @@
 {
   "config": {
+    "index": 0,
     "dimension": "3D",
     "categoryKey": "name",
     "categoryShortKey": "shortName",
@@ -9,7 +10,8 @@
     "series": {
       "column": {
         "template": {
-          "maxHeight": 40
+          "maxHeight": 40,
+          "cursorStyle": "pointer"
         }
       }
     }
