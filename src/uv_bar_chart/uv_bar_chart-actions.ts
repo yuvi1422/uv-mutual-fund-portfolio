@@ -1,5 +1,4 @@
 import UV_BAR_CHART from './uv_bar_chart-constants';
-import UVCategory from '../uv_interface-category';
 import UVBarChartConfig from './uv_bar_chart-interface-config';
 import UVItem from '../uv_interface-item';
 
@@ -11,15 +10,26 @@ const initBarChart = (barChartConfig: UVBarChartConfig, barChartItems: UVItem[])
   };
 };
 
-const updateBarChart = (parentIndex: number, categoryData: any) => {
+const updateBarChart = (parentIndex: number, items: UVItem[]) => {
   return {
     type: UV_BAR_CHART.UPDATE,
-    index: parentIndex,
+    config: {
+      index: parentIndex
+    },
+    data: items
+  };
+};
+
+const loadCategoryDetails = (categoryData: UVItem[]) => {
+  return {
+    type: UV_BAR_CHART.SELECT,
+    config:[],
     data: categoryData
   };
 };
 
 export {
   initBarChart,
-  updateBarChart
+  updateBarChart,
+  loadCategoryDetails
 }

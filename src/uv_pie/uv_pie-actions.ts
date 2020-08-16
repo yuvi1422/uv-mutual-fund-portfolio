@@ -14,7 +14,9 @@ const loadPie = (pieConfig: UVPieConfig, pieCategories: UVCategory[]) => {
 const selectSlice = (sliceIndex: number, sliceData: UVItem[]) => {
   return {
     type: UV_PIE.SELECT_SLICE,
-    index: sliceIndex,
+    config: {
+      index: sliceIndex
+    },
     data: sliceData
   }
 };

@@ -10,7 +10,8 @@
     "series": {
       "column": {
         "template": {
-          "maxHeight": 40
+          "maxHeight": 40,
+          "cursorStyle": "pointer"
         }
       }
     }

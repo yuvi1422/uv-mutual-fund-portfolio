@@ -1,4 +1,5 @@
 import UV_BAR_CHART from './uv_bar_chart-constants';
+import UVAction from '../uv_interface-action';
 
 const initialState = {
   valueType: 'current',
@@ -13,7 +14,7 @@ const initialState = {
   }
 };
 
-const uvBarChartReducer = (state=initialState, action: any) => {
+const uvBarChartReducer = (state=initialState, action: UVAction) => {
   switch (action.type) {
     case UV_BAR_CHART.INIT:
       return {
@@ -23,7 +24,7 @@ const uvBarChartReducer = (state=initialState, action: any) => {
       }
     case UV_BAR_CHART.UPDATE:
       let tmpConfig = {...state.config};
-      tmpConfig.index = action.index;
+      tmpConfig.index = action.config.index;
       return {
         ...state,
         config: tmpConfig,
