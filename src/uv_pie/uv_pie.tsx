@@ -72,13 +72,17 @@ function UvPie() {
       series.slices.template.propertyFields.fill = pieConfig.series.fillColorKey;
       series.slices.template.propertyFields.isActive = 'isActive';
       series.slices.template.propertyFields.id = 'id';
-      uvChart.innerRadius = am4core.percent(uvObject.getObjectByPath(pieData, 'config.chsart', 'innerRadiusPercent', 0));
+
+      const cursorStyle = uvObject.getObjectByPath(pieConfig, 'series.slices.template', 'cursorStyle', null);
+
+      if(cursorStyle && cursorStyle === 'pointer') {
+        series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+      }
+      uvChart.innerRadius = am4core.percent(uvObject.getObjectByPath(pieData, 'config.chart', 'innerRadiusPercent', 0));
 
       series.slices.template.events.on('hit', ((ev) => {
-
         const sliceIndex = parseInt(ev.target.id);
         uvStore.dispatch(selectSlice(sliceIndex, pieData[sliceIndex].items));
-
         series.slices.each(((item) => {
           if (item.isActive && item !== ev.target) {
             item.isActive = false;
@@ -91,8 +95,8 @@ function UvPie() {
         series.labels.template.disabled = true;
       }
 
-      series.labels.template.wrap = pieConfig.label.wrap;
-      series.labels.template.width = pieConfig.label.width;
+      series.labels.template.wrap = uvObject.getObjectByPath(pieConfig, 'label', 'wrap', false);
+      series.labels.template.width = uvObject.getObjectByPath(pieConfig, 'label', 'width', 100);
       // default startAngle is -90 and default endAngle is 270
       series.hiddenState.properties.endAngle = uvObject.getObjectByPath(pieData, 'config.series.animation', 'endAngle', 270);
 
