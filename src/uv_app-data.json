@@ -8,6 +8,7 @@
       "name": "Liquid Fund",
       "value": 0,
       "isAmountOnly": true,
+      "color": "#6771dc",
       "items": [
         {
           "id": 0,
@@ -456,6 +457,7 @@
       "id": 7,
       "name": "PPF & EPF",
       "value": 0,
+      "color": "green",
       "items": [
         {
           "name": "PPF",

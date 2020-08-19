@@ -12,6 +12,7 @@ import UVItem from '../uv_interface-item';
 import UVAmount from '../uv_interface-amount';
 import { loadCategoryDetails } from './uv_bar_chart-actions';
 import { uvStore } from '../uv_store';
+import uvObject from '@uv-tech/util/lib/uv-object';
 
 function UvBarChart() {
 
@@ -78,7 +79,7 @@ function UvBarChart() {
     categoryAxis.renderer.grid.template.disabled = true;
 
     const valueAxis = uvChart.xAxes.push(new am4charts.ValueAxis());
-    valueAxis.min = barConfig.valueAxis.min;
+    valueAxis.min = uvObject.getObjectByPath(barConfig, 'valueAxis', 'min', 0);
 
     const series = uvChart.series.push(getChartDimensions(barConfig.dimension).columnType);
     series.dataFields.categoryY = barConfig.categoryKey;
@@ -89,7 +90,9 @@ function UvBarChart() {
     series.columns.template.column.cornerRadiusTopRight = 5;
     series.columns.template.tooltipText = "{valueX}";
     series.columns.template.propertyFields.id = 'id';
-    if(barConfig.series.column.template.cursorStyle === 'pointer') {
+
+    const cursorStyle = uvObject.getObjectByPath(barConfig, 'series.column.template', 'cursorStyle', null);
+    if(cursorStyle && cursorStyle === 'pointer') {
       series.columns.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
     }
 
@@ -111,7 +114,10 @@ function UvBarChart() {
 
     categoryAxis.sortBySeries = series;
 
-    series.columns.template.maxHeight =  barConfig.series.column.template.maxHeight;
+    const maxHeight = uvObject.getObjectByPath(barConfig, 'series.column.template', 'maxHeight', 0);
+    if(maxHeight !== 0) {
+      series.columns.template.maxHeight =  maxHeight;
+    }
 
     if(uvDevice.isMobileDevice()) {
       categoryAxis.dataFields.category = barConfig.categoryShortKey;
