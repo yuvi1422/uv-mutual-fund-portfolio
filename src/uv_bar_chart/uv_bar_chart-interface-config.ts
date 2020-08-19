@@ -1,7 +1,7 @@
 export default interface UVBarChartConfig {
-  dimension: string;
+  dimension ?: string;
   categoryKey: string;
   categoryShortKey: string;
-  valueAxis: object;
-  series: object;
+  valueAxis ?: object;
+  series ?: object;
 };
