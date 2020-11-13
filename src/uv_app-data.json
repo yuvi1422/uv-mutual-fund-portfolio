@@ -1,6 +1,7 @@
 {
   "config": {
-    "initialIndex": 0
+    "initialIndex": 0,
+    "font": "medium"
   },
   "categories": [
     {

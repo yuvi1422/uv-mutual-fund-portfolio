@@ -1,5 +1,5 @@
 export default interface UVAction {
   type: string;
-  config: any;
+  config ?: any;
   data: any;
 };

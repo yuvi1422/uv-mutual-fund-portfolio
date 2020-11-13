@@ -1,4 +1,4 @@
-import UVAmount from './uv_interface-amount';
+import UVAmount from './uv_interface.amount';
 
 export default interface UVItem  {
   // Key will be string and value will be anything of mentioned types.

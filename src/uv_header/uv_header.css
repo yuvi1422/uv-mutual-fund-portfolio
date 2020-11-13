@@ -1,0 +1,60 @@
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-weight: 600;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.toolbar.primary {
+  background-color: #1976d2;
+}
+.toolbar.success {
+  background-color: #5cb85c;
+}
+.toolbar.info {
+  background-color: #5bc0de;
+}
+.toolbar.warning {
+  background-color: #f0ad4e;
+}
+.toolbar.danger {
+  background-color: #d9534f;
+}
+.toolbar.inverse {
+  background-color: #292b2c;
+}
+.toolbar.faded {
+  background-color: #f7f7f7;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.toolbar .logo {
+  margin: 0 16px;
+}
+
+.toolbar .logo:hover {
+  opacity: 0.8;
+}
+
+.content {
+  display: flex;
+  margin-top: 82px;
+  padding: 0 16px;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+
+}

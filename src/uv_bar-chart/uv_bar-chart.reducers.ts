@@ -1,5 +1,5 @@
-import UV_BAR_CHART from './uv_bar_chart-constants';
-import UVAction from '../uv_interface-action';
+import UV_BAR_CHART from './uv_bar-chart.constants';
+import UVAction from '../uv_interface.action';
 
 const initialState = {
   valueType: 'current',
