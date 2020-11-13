@@ -7,7 +7,7 @@ import * as appData from './uv_app-data.json';
 
 import UvHeader from './uv_header/uv_header';
 import UvPie from './uv_pie/uv_pie';
-import UvBarChart from './uv_bar_chart/uv_bar_chart';
+import UvBarChart from './uv_bar-chart/uv_bar-chart';
 
 function App() {
   return (

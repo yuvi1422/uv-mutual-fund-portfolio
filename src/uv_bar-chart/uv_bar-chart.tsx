@@ -6,11 +6,11 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import { useSelector } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
-import './uv_bar_chart.css';
-import { UVRootState } from '../root-reducer';
-import UVItem from '../uv_interface-item';
-import UVAmount from '../uv_interface-amount';
-import { loadCategoryDetails } from './uv_bar_chart-actions';
+import './uv_bar-chart.css';
+import { UVRootState } from '../root.reducer';
+import UVItem from '../uv_interface.item';
+import UVAmount from '../uv_interface.amount';
+import { loadCategoryDetails } from './uv_bar-chart.actions';
 import { uvStore } from '../uv_store';
 import uvObject from '@uv-tech/util/lib/uv-object';
 

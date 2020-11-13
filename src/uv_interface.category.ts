@@ -1,4 +1,4 @@
-import UVItem from './uv_interface-item';
+import UVItem from './uv_interface.item';
 
 export default interface UVCategory {
   // Key will be string and value will be anything of mentioned types.
