@@ -3,11 +3,14 @@
     "chartMax": 5,
     "chartMin": 0,
     "fontSize": 12,
-    "hand": {},
+    "hand": {
+      "innerRadius": 50
+    },
     "handAxis": {},
     "mainAxis": {},
-    "score": 4,
-    "title": "Crisil Rating",
+    "score": 5,
+    "showScore": false,
+    "title": "Crisil \n Rating",
     "upperCaseGrades": true
   },
   "data": [

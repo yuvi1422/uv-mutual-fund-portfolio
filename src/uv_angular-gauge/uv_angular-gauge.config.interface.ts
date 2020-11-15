@@ -5,6 +5,7 @@ export default interface UVAngularGaugeConfig {
   handAxis ?: any;
   mainAxis ?: any;
   score: number;
+  showScore ?: boolean;
   title: string;
   upperCaseGrades ?: boolean;
 };

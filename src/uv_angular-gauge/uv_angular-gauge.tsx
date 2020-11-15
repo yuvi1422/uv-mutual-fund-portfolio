@@ -98,7 +98,7 @@ function UvAngularGauge() {
     label.verticalCenter = "bottom";
     //label.dataItem = data;
     label.text = config.score.toFixed(1);
-    //label.text = "{score}";
+    label.text = '';  //  To avoid flicker effect, assigned empty string as initial value.
     label.fill = am4core.color(matchingGrade.color);
 
     //  Label 2
@@ -107,7 +107,7 @@ function UvAngularGauge() {
     label2.fontSize = "2em";
     label2.horizontalCenter = "middle";
     label2.verticalCenter = "bottom";
-    label2.text = matchingGrade.title.toUpperCase();
+    label2.text = config.title;
     label2.fill = am4core.color(matchingGrade.color);
 
     //  Hand
@@ -122,7 +122,7 @@ function UvAngularGauge() {
     hand.showValue(config.score - 0.5);
 
     hand.events.on("positionchanged", function(){
-      label.text = (axis2.positionToValue(hand.currentPosition) + 0.5).toFixed(0);
+      label.text = config.showScore ? (axis2.positionToValue(hand.currentPosition) + 0.5).toFixed(0) : '';
       let matchingGrade = lookUpGrade(axis.positionToValue(hand.currentPosition), data);
       label2.text = config.title;
       label2.fill = am4core.color(matchingGrade.color);
