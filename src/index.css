@@ -1,3 +1,12 @@
 .uv-font-medium {
   font-family: 'IBM Plex Serif', serif;
 }
+:root {
+  --color-primary: #1976d2;
+  --color-success: #5cb85c;
+  --color-info: #5bc0de;
+  --color-warning: #f0ad4e;
+  --color-danger: #d9534f;
+  --color-inverse: #292b2c;
+  --color-faded: #f7f7f7;
+}

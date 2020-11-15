@@ -15,25 +15,25 @@
 }
 
 .toolbar.primary {
-  background-color: #1976d2;
+  background-color: var(--color-primary);
 }
 .toolbar.success {
-  background-color: #5cb85c;
+  background-color: var(--color-success);
 }
 .toolbar.info {
-  background-color: #5bc0de;
+  background-color: var(--color-info);
 }
 .toolbar.warning {
-  background-color: #f0ad4e;
+  background-color: var(--color-warning);
 }
 .toolbar.danger {
-  background-color: #d9534f;
+  background-color: var(--color-danger);
 }
 .toolbar.inverse {
-  background-color: #292b2c;
+  background-color: var(--color-inverse);
 }
 .toolbar.faded {
-  background-color: #f7f7f7;
+  background-color: var(--color-faded);
 }
 
 .toolbar img {
