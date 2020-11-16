@@ -13,7 +13,8 @@ This is a website to analyze our mutual fund portfolio.
 # File Naming convension
 
 * File name should be prefixed by `uv_`.
-* File name should be in lowercase separated by hypen (`-`);
+* File name should be in lowercase separated by hypen (`-`)
+* File name should have dot (`.`) to separate file type. Ex. `uv_angular-gauge.reducer.ts`
 * File name of root interfaces should be prefixed by `uv_interface-`
 
 <br />
