@@ -19,7 +19,7 @@ This is a website to analyze our mutual fund portfolio.
 
 <br />
 
-## Available Scripts
+# Available Scripts
 
 ### `npm start`
 
