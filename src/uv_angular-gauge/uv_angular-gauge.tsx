@@ -14,6 +14,10 @@ function UvAngularGauge() {
 
   const chart = useRef(null);
 
+  let score = useSelector((state: UVRootState) => {
+    return state.angularGauge.score;
+  });
+
   let config = useSelector((state: UVRootState) => {
     return state.angularGauge.config;
   });
@@ -34,6 +38,9 @@ function UvAngularGauge() {
   }
 
   useLayoutEffect(() => {
+
+
+    config.score = (score && score >= config.chartMin && score <= config.chartMax) ? score : config.score;
 
     // create uvChart
     let uvChart = am4core.create("gaugeDiv", am4charts.GaugeChart);
@@ -136,7 +143,7 @@ function UvAngularGauge() {
       uvChart.dispose();
     };
 
-}, [config, data]);
+}, [score, config, data]);
   return (
     <div className="uv-angular-gauge-container">
       <div id="gaugeDiv"></div>

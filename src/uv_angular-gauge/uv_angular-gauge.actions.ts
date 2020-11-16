@@ -10,6 +10,14 @@ const loadAngularGauge = (angularGaugeConfig: UvAngularGaugeConfig, angularGauge
   }
 };
 
+const updateAngularGauge = (angularGauageScore: number) => {
+  return {
+    type: UV_ANGULAR_GAUGE.UPDATE,
+    score: angularGauageScore
+  }
+};
+
 export {
-  loadAngularGauge
+  loadAngularGauge,
+  updateAngularGauge
 }

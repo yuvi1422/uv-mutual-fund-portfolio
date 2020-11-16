@@ -67,6 +67,8 @@ function UvBarChart() {
       return items;
     }
 
+    uvStore.dispatch(loadCategoryDetails(barData[0]));
+
     const uvChart: am4charts.XYChart = am4core.create('barChartDiv', getChartDimensions(barConfig.dimension).chartType);
     uvChart.padding(40, 40, 40, 40);
 
