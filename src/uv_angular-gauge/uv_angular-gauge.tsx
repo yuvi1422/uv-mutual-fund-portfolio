@@ -39,6 +39,11 @@ function UvAngularGauge() {
 
   useLayoutEffect(() => {
 
+    // Hide the gauge when score is 0
+    if(score === 0) {
+      return;
+    }
+
 
     config.score = (score && score >= config.chartMin && score <= config.chartMax) ? score : config.score;
 

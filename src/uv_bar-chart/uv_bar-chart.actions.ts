@@ -20,16 +20,16 @@ const updateBarChart = (parentIndex: number, items: UVItem[]) => {
   };
 };
 
-const loadCategoryDetails = (categoryData: UVItem[]) => {
+const loadBarChartDetails = (parentConfig: any, barChartData: UVItem[]) => {
   return {
     type: UV_BAR_CHART.SELECT,
-    config:[],
-    data: categoryData
+    config: parentConfig,
+    data: barChartData
   };
 };
 
 export {
   initBarChart,
   updateBarChart,
-  loadCategoryDetails
+  loadBarChartDetails
 }

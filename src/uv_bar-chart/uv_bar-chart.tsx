@@ -10,7 +10,7 @@ import './uv_bar-chart.css';
 import { UVRootState } from '../root.reducer';
 import UVItem from '../uv_interface.item';
 import UVAmount from '../uv_interface.amount';
-import { loadCategoryDetails } from './uv_bar-chart.actions';
+import { loadBarChartDetails } from './uv_bar-chart.actions';
 import { uvStore } from '../uv_store';
 import uvObject from '@uv-tech/util/lib/uv-object';
 
@@ -23,6 +23,9 @@ function UvBarChart() {
     isAmountOnly : useSelector((state: UVRootState) => {
       return state.barChart.isAmountOnly;
     }),
+    config: useSelector((state: UVRootState) => {
+      return state.pie.data[state.barChart.config.index];
+    })
   };
 
   const barData = useSelector((state: UVRootState) => {
@@ -67,7 +70,7 @@ function UvBarChart() {
       return items;
     }
 
-    uvStore.dispatch(loadCategoryDetails(barData[0]));
+    uvStore.dispatch(loadBarChartDetails(parentProps.config, barData[0]));
 
     const uvChart: am4charts.XYChart = am4core.create('barChartDiv', getChartDimensions(barConfig.dimension).chartType);
     uvChart.padding(40, 40, 40, 40);
@@ -111,7 +114,7 @@ function UvBarChart() {
     });
 
     series.columns.template.events.on("hit", function(ev) {
-      uvStore.dispatch(loadCategoryDetails(barData[ev.target.id]));
+      uvStore.dispatch(loadBarChartDetails(parentProps.config, barData[ev.target.id]));
     });
 
     categoryAxis.sortBySeries = series;

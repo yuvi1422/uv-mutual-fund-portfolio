@@ -3,7 +3,7 @@ import UVAction from './../uv_interface.action';
 import UV_ANGULAR_GAUGE from './uv_angular-gauge.constants';
 
 function* updateAngularGauge(angularGaugeData: UVAction) {
-  console.log('Angular Gauge Updated: ', angularGaugeData);
+  console.log('Angular Gauge Updated');
   yield 'Angular Gauge Updated';
 }
 

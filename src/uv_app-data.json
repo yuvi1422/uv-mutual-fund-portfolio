@@ -10,6 +10,7 @@
       "value": 0,
       "isAmountOnly": true,
       "color": "#6771dc",
+      "expenseRatio": 1.1,
       "items": [
         {
           "id": 0,
@@ -187,6 +188,7 @@
       "value": 0,
       "isAmountOnly": false,
       "color": "yellow",
+      "expenseRatio": 2.1,
       "items": [
         {
           "id": 0,
@@ -215,7 +217,6 @@
             "1": 5.85,
             "3": 5.92,
             "5": 3.41,
-            "7": 111,
             "all": 14.13
           },
           "rating": 4,
@@ -253,9 +254,9 @@
           "inceptionSince": "ABC",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
           "rating": 4,
@@ -293,9 +294,9 @@
           "inceptionSince": "ABC",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
           "rating": 4,
@@ -373,9 +374,9 @@
           "inceptionSince": "ABC",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
           "rating": 1,
@@ -413,9 +414,9 @@
           "inceptionSince": "ABC",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
           "rating": 3,
@@ -435,6 +436,7 @@
       "name": "Large Cap MF",
       "value": 0,
       "color": "green",
+      "expenseRatio": 3.1,
       "items": []
     },
     {
@@ -442,6 +444,7 @@
       "name": "Medium Cap MF",
       "value": 0,
       "color": "gray",
+      "expenseRatio": 3.1,
       "items": [
       ]
     },
@@ -449,6 +452,7 @@
       "id": 5,
       "name": "Small Cap MF",
       "value": 0,
+      "expenseRatio": 5.1,
       "items": [
       ]
     },
@@ -456,6 +460,7 @@
       "id": 6,
       "name": "Shares",
       "value": 0,
+      "expenseRatio": 0,
       "items": [
 
       ]
@@ -465,8 +470,10 @@
       "name": "PPF & EPF",
       "value": 0,
       "color": "green",
+      "expenseRatio": 0,
       "items": [
         {
+          "id": 0,
           "name": "PPF",
           "shortName": "PPF",
           "initial": {
@@ -490,12 +497,12 @@
           "inceptionSince":"01/01/1968",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
-          "rating": 111,
+          "rating": 0,
           "firstInvestmentDate": "25/07/2015",
           "tentetiveEndDate": "31/03/2040",
           "AUM":  111,
@@ -506,6 +513,7 @@
           }
         },
         {
+          "id": 1,
           "name": "EPF-1",
           "shortName": "EPF-1",
           "initial": {
@@ -529,12 +537,12 @@
           "inceptionSince":"ABCD",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
-          "rating": 111,
+          "rating": 0,
           "firstInvestmentDate": "25/11/2015",
           "tentetiveEndDate": "31/03/2040",
           "AUM":  111,
@@ -545,6 +553,7 @@
           }
         },
         {
+          "id": 2,
           "name": "EPF-2",
           "shortName": "EPF-2",
           "initial": {
@@ -568,12 +577,12 @@
           "inceptionSince":"ABCD",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
-          "rating": 111,
+          "rating": 0,
           "firstInvestmentDate": "ABCD",
           "tentetiveEndDate": "31/03/2040",
           "AUM":  111,
@@ -584,6 +593,7 @@
           }
         },
         {
+          "id": 3,
           "name": "EPF-3",
           "shortName": "EPF-3",
           "initial": {
@@ -607,12 +617,12 @@
           "inceptionSince":"ABCD",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
-          "rating": 111,
+          "rating": 0,
           "firstInvestmentDate": "20/09/2016",
           "tentetiveEndDate": "31/03/2040",
           "AUM":  111,
@@ -623,6 +633,7 @@
           }
         },
         {
+          "id": 4,
           "name": "EPF-4",
           "shortName": "EPF-4",
           "initial": {
@@ -646,12 +657,12 @@
           "inceptionSince":"ABCD",
           "returns": {
             "1": 111,
+            "2": 111,
             "3": 111,
             "5": 111,
-            "7": 111,
             "all": 111
           },
-          "rating": 111,
+          "rating": 0,
           "firstInvestmentDate": "21/02/2018",
           "tentetiveEndDate": "31/03/2040",
           "AUM":  111,
