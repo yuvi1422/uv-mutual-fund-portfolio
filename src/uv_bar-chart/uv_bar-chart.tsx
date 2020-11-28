@@ -70,7 +70,6 @@ function UvBarChart() {
       return items;
     }
 
-    uvStore.dispatch(loadBarChartDetails(parentProps.config, barData[0]));
 
     const uvChart: am4charts.XYChart = am4core.create('barChartDiv', getChartDimensions(barConfig.dimension).chartType);
     uvChart.padding(40, 40, 40, 40);
@@ -129,6 +128,11 @@ function UvBarChart() {
       series.dataFields.categoryY = barConfig.categoryShortKey;
     }
     uvChart.data = getProcessedData(barData) as UVItem[];
+
+    let selectedBar = uvChart.data.reduce(function(prev: UVItem, current: UVItem) {
+      return (current.value > prev.value) ? current : prev;
+    });
+    uvStore.dispatch(loadBarChartDetails(parentProps.config, selectedBar));
 
     chart.current = uvChart;
 

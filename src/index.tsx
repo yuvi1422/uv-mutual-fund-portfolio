@@ -10,7 +10,7 @@ import { uvStore } from './uv_store';
 ReactDOM.render(
   <Provider store={uvStore}>
     <App />
-    </Provider>,
+  </Provider>,
   document.getElementById('root')
 );
 
