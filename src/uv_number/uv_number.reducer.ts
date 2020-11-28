@@ -22,6 +22,7 @@ const UvNumberReducer = (state=initialState, action: UVAction) => {
     case UV_NUMBER.LOAD:
       return {
         ...state,
+        config: {...initialState.config, ...action.config},
         data: {
           title: action.data.title,
           subtitle: action.data.subtitle

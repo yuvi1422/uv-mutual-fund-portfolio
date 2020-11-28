@@ -6,6 +6,7 @@ import { UVRootState } from '../root.reducer';
 
 function UvNumber() {
 
+  // TODO: Resolve issue of calling 3 times.
   let config = useSelector((state: UVRootState) => {
     return state.number.config;
   });

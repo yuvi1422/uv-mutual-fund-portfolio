@@ -17,6 +17,11 @@ function* selectBar(chartData: UVAction) {
   // Trigger Number Component Update for expense ratio
   yield put({
     type: UV_NUMBER.LOAD,
+    config: {
+      title : {
+        class: (chartData.data.expenseRatio < chartData.config.expenseRatio) ? 'uv-color-success' : 'uv-color-danger'
+      }
+    },
     data: {
       title: chartData.data.expenseRatio,
       subtitle: 'Category Average: ' + chartData.config.expenseRatio

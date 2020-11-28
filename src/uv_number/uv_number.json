@@ -1,10 +1,11 @@
 {
   "config": {
+    "class": "",
     "title": {
-
+      "class": ""
     },
     "subtitle": {
-
+      "class": ""
     }
   },
   "data": {
