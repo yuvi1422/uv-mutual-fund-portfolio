@@ -4,6 +4,7 @@
   "private": true,
   "description": "This is a website to analyze our mutual fund portfolio.",
   "author": "Yuvraj Patil",
+  "homepage": "http://www.yuvrajpatil.com/analyzers/mfs/",
   "dependencies": {
     "@amcharts/amcharts4": "4.10.11",
     "@testing-library/jest-dom": "^4.2.4",
