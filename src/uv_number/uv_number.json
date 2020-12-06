@@ -1,0 +1,15 @@
+{
+  "config": {
+    "class": "",
+    "title": {
+      "class": ""
+    },
+    "subtitle": {
+      "class": ""
+    }
+  },
+  "data": {
+    "title": 1.25,
+    "subtitle": "Life is Awesome"
+  }
+}

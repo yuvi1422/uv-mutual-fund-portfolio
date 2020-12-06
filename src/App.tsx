@@ -9,6 +9,7 @@ import UvHeader from './uv_header/uv_header';
 import UvPie from './uv_pie/uv_pie';
 import UvBarChart from './uv_bar-chart/uv_bar-chart';
 import UvAngularGauge from './uv_angular-gauge/uv_angular-gauge';
+import UvNumber from './uv_number/uv_number';
 
 function App() {
   return (
@@ -28,6 +29,13 @@ function App() {
         <Row className="uv-row">
           <Col md={4} xs={12}>
             <UvAngularGauge></UvAngularGauge>
+          </Col>
+          <Col md={4} xs={12}>
+            <Row>
+              <Col md={{span: 12, offset: 1}} xs={12}>
+                <UvNumber></UvNumber>
+             </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
