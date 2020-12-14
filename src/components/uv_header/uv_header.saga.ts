@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga/effects';
-import UVAction from '../uv_interface.action';
+import UVAction from '../../uv_interface.action';
 import UV_HEADER from './uv_header.constants';
 
 function* updateHeader(pieSlice: UVAction) {

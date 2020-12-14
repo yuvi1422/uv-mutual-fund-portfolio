@@ -9,11 +9,11 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
 
 import './uv_pie.css';
-import { uvStore } from '../uv_store';
+import { uvStore } from '../../uv_store';
 import { useSelector } from 'react-redux';
-import { UVRootState } from '../root.reducer';
-import UVCategory from '../uv_interface.category';
-import UVAmount from '../uv_interface.amount';
+import { UVRootState } from '../../root.reducer';
+import UVCategory from '../../uv_interface.category';
+import UVAmount from '../../uv_interface.amount';
 import { updateBarChart } from '../uv_bar-chart/uv_bar-chart.actions';
 
 am4core.useTheme(am4themes_material);

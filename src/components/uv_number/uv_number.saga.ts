@@ -7,6 +7,6 @@ function* loadUvNumber() {
   yield UV_NUMBER.LOAD;
 }
 
-export default function* UvNumberSaga() {
-  takeEvery(UV_NUMBER.LOAD, loadUvNumber);
+export function* UvNumberSaga() {
+  yield takeEvery(UV_NUMBER.LOAD, loadUvNumber);
 }

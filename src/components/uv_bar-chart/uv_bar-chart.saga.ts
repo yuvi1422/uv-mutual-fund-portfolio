@@ -1,8 +1,8 @@
 import { takeEvery, put } from 'redux-saga/effects';
+
 import UV_BAR_CHART from './uv_bar-chart.constants';
-import UVAction from '../uv_interface.action';
-import UV_ANGULAR_GAUGE from './../uv_angular-gauge/uv_angular-gauge.constants';
-import UV_NUMBER from '../uv_number/uv_number.constants';
+import UVAction from '../../uv_interface.action';
+import UV_ANGULAR_GAUGE from '../uv_angular-gauge/uv_angular-gauge.constants';
 
 function* selectBar(chartData: UVAction) {
   console.log('Bar Chart Data: ', chartData);
@@ -12,20 +12,6 @@ function* selectBar(chartData: UVAction) {
   yield put({
     type: UV_ANGULAR_GAUGE.UPDATE,
     config: chartData.data.rating // TODO: Move this to data object instead of config object.
-  });
-
-  // Trigger Number Component Update for expense ratio
-  yield put({
-    type: UV_NUMBER.LOAD,
-    config: {
-      title : {
-        class: (chartData.data.expenseRatio < chartData.config.expenseRatio) ? 'uv-color-success' : 'uv-color-danger'
-      }
-    },
-    data: {
-      title: chartData.data.expenseRatio,
-      subtitle: 'Category Average: ' + chartData.config.expenseRatio
-    }
   });
 }
 

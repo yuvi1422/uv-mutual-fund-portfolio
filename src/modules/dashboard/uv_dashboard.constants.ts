@@ -1,0 +1,6 @@
+const UV_DASHBOARD = {
+  LOAD: 'UV_DASHBOARD_LOAD',
+  UPDATE: 'UV_DASHBOARD_UPDATE'
+};
+
+export default UV_DASHBOARD;

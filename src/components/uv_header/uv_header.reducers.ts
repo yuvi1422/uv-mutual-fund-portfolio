@@ -1,5 +1,5 @@
 import UV_HEADER from './uv_header.constants';
-import UVAction from '../uv_interface.action';
+import UVAction from '../../uv_interface.action';
 
 const initialState = {
   data: {}

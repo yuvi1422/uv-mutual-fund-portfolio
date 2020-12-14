@@ -1,6 +1,6 @@
 import UV_BAR_CHART from './uv_bar-chart.constants';
 import UVBarChartConfig from './uv_bar-chart.interface.config';
-import UVItem from '../uv_interface.item';
+import UVItem from '../../uv_interface.item';
 
 const initBarChart = (barChartConfig: UVBarChartConfig, barChartItems: UVItem[]) => {
   return {

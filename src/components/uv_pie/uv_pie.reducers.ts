@@ -1,5 +1,5 @@
 import UV_PIE from './uv_pie.constants';
-import UVAction from '../uv_interface.action';
+import UVAction from '../../uv_interface.action';
 
 const initialState = {
   config: {},

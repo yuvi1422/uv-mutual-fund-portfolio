@@ -1,4 +1,4 @@
-import UVAction from '../uv_interface.action';
+import UVAction from '../../uv_interface.action';
 import UV_NUMBER from './uv_number.constants';
 
 const initialState = {

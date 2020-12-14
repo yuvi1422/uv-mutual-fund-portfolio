@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import './uv_header.css';
-import { UVRootState } from '../root.reducer';
+import { UVRootState } from '../../root.reducer';
 
 function UvHeader() {
 

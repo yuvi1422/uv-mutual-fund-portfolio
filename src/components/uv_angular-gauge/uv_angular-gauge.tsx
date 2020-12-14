@@ -6,7 +6,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 import './uv_angular-gauge.css';
 import { useSelector } from 'react-redux';
-import { UVRootState } from '../root.reducer';
+import { UVRootState } from '../../root.reducer';
 
 am4core.useTheme(am4themes_animated);
 
