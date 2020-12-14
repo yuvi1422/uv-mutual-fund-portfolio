@@ -3,11 +3,12 @@ This is a website to analyze our mutual fund portfolio.
 
 # Technologies and Libraries Used
 
-* [ReactJS](https://reactjs.org/)
+* [React](https://reactjs.org/)
 * [Redux Saga](https://redux-saga.js.org/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
 * [amCharts](https://www.amcharts.com/)
+* [Axios](https://github.com/axios/axios)
 * [uvUtil](https://github.com/yuvi1422/npm-uv-util)
 
 # File Naming convension
