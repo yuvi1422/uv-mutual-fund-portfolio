@@ -1,15 +1,15 @@
-# Mutual Fund Portfolio
-This is a website to analyze our mutual fund portfolio.
+# Investment Portfolio
+This is a website to analyze our investment portfolio.
 
 # Technologies and Libraries Used
 
-* [React](https://reactjs.org/)
-* [Redux Saga](https://redux-saga.js.org/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [React Bootstrap](https://react-bootstrap.github.io/)
-* [amCharts](https://www.amcharts.com/)
-* [Axios](https://github.com/axios/axios)
-* [uvUtil](https://github.com/yuvi1422/npm-uv-util)
+* [React 16.13.1](https://reactjs.org/)
+* [Redux Saga 1.1.3](https://redux-saga.js.org/)
+* [TypeScript 3.9.7](https://www.typescriptlang.org/)
+* [React Bootstrap 1.3.0](https://react-bootstrap.github.io/)
+* [amCharts 4.10.11](https://www.amcharts.com/)
+* [Axios 0.21.0](https://github.com/axios/axios)
+* [uvUtil 1.0.3](https://github.com/yuvi1422/npm-uv-util)
 
 # File Naming convension
 

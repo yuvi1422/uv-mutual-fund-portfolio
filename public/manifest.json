@@ -1,7 +1,7 @@
 {
-  "short_name": "UV Mutual Fund Portfolio",
-  "name": "Mutual Fund Portfolio by Yuvraj Patil",
-  "description": "This is a website developed by Yuvraj Patil to analyze our mutual fund portfolio.",
+  "short_name": "UV Investment Portfolio",
+  "name": "UV Investment Portfolio by Yuvraj Patil",
+  "description": "This is a website developed by Yuvraj Patil to analyze our Investment portfolio.",
   "icons": [
     {
       "src": "favicon.ico",

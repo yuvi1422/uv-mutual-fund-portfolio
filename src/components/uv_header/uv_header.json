@@ -1,6 +1,6 @@
 {
   "config": {
-    "title": "UV Mutual Fund Portfolio",
+    "title": "UV Investment Portfolio",
     "theme": "success",
     "alt": "Yuvraj Patil",
     "logo": {
@@ -10,7 +10,7 @@
     "repository": {
       "name": "Github",
       "logo": "github.png",
-      "url": "https://github.com/yuvi1422/uv-mutual-fund-portfolio",
+      "url": "https://github.com/yuvi1422/uv-investment-portfolio",
       "height": "40px"
     }
   }

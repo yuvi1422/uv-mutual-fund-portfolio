@@ -13,7 +13,7 @@ function UvDashboard() {
 
 let uvNumbers = useSelector((state: UVRootState) => {
   return state.dashboard.numbers;
-})
+});
 
   return (
     <div className="uv-dashboard" id="uv-dashboard">
