@@ -12,7 +12,8 @@ const UvDashboardReducer = (state = initialState, action: UVAction)=> {
     case UV_DASHBOARD.UPDATE:
       return {
         ...state,
-        numbers: action.data.uvNumbers
+        numbers: action.data.uvNumbers,
+        pie: action.data.pie
       }
     default:
       return state;

@@ -58,7 +58,11 @@ function* loadDashboard() {
   const uvNumbers: UvNumberProps[] = [expenseRatioObj, aumObj]
 
   let dashboardData = {
-    uvNumbers: uvNumbers
+    uvNumbers: uvNumbers,
+    pie: {
+      config: response.data.pieConfig,
+      categories: response.data.categories
+    }
   };
   yield put(updateDashboard(dashboardData));
 }

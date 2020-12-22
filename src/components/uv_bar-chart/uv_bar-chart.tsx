@@ -24,7 +24,7 @@ function UvBarChart() {
       return state.barChart.isAmountOnly;
     }),
     config: useSelector((state: UVRootState) => {
-      return state.pie.data[state.barChart.config.index];
+      return state.dashboard.pie && state.dashboard.pie.categories && state.dashboard.pie.categories[state.barChart.config.index];
     })
   };
 

@@ -15,6 +15,10 @@ let uvNumbers = useSelector((state: UVRootState) => {
   return state.dashboard.numbers;
 });
 
+let uvPieData = useSelector((state: UVRootState) => {
+  return state.dashboard.pie;
+});
+
   return (
     <div className="uv-dashboard" id="uv-dashboard">
       <Container>
@@ -23,7 +27,7 @@ let uvNumbers = useSelector((state: UVRootState) => {
         </Row>
         <Row className="uv-container uv-row">
           <Col md={6} xs={12}>
-            <UvPie></UvPie>
+            <UvPie pieData={uvPieData}></UvPie>
           </Col>
           <Col md={6} xs={12}>
               <UvBarChart></UvBarChart>
