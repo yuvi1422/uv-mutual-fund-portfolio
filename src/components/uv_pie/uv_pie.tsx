@@ -9,26 +9,29 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
 
 import './uv_pie.css';
-import { uvStore } from '../../uv_store';
 import UVCategory from '../../uv_interface.category';
 import UVAmount from '../../uv_interface.amount';
-import { updateBarChart } from '../uv_bar-chart/uv_bar-chart.actions';
+import { useDispatch } from 'react-redux';
+import { selectedPieSlice } from './uv_pie.actions';
 
 am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
 
 function UvPie(props: any) {
+
+  const dispatch = useDispatch();
+
   const chart = useRef({});
 
 
-  let pieConfig = props.pieData.config;
-  let pieData = props.pieData.categories;
+  let pieConfig = props.pieData && props.pieData.config;
+  let pieData = props.pieData && props.pieData.data.categories;
 
   useEffect(() => {
     if(!pieConfig || !pieData) {
       return;
     }
-    let valueType = 'initial';
+    let valueType = 'current';
 
     function getSectorTotal(category: UVCategory) {
       let total = 0;
@@ -77,7 +80,8 @@ function UvPie(props: any) {
 
       series.slices.template.events.on('hit', ((ev) => {
         const sliceIndex = parseInt(ev.target.id);
-        uvStore.dispatch(updateBarChart(sliceIndex, pieData[sliceIndex].items));
+        dispatch(selectedPieSlice(props.componentId, sliceIndex));
+
         series.slices.each(((item) => {
           if (item.isActive && item !== ev.target) {
             item.isActive = false;
@@ -100,7 +104,7 @@ function UvPie(props: any) {
     return () => {
       uvChart.dispose();
     };
-  }, [pieConfig, pieData]);
+  }, [props.componentId, dispatch, pieConfig, pieData]);
 
   return (
     <div className="pie-container">

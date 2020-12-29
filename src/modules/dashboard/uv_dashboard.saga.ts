@@ -3,29 +3,60 @@ import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
 import { UvNumberProps } from '../../shared/Types';
 import UVCategory from '../../uv_interface.category';
 import UVItem from '../../uv_interface.item';
-import { updateDashboard } from './uv_dashboard.actions';
+import { loadDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
 import UV_DASHBOARD from './uv_dashboard.constants';
 
+import barChartConfig from './../../components/uv_bar-chart/uv_bar-chart.json';
+import angularGaugeConfig from './../../components/uv_angular-gauge/uv_angular-gauge.json';
 
-function* loadDashboard() {
+const defaultComponentId = 0;
+
+function* initDashboardSaga() {
+
+  let categoryData = {
+    selectionIndex: 0,
+    categories: [{
+        config: {},
+        selectionIndex: 0,
+        items: [] as UVItem[]
+      }
+    ]
+  };
 
   let response = yield call(UvDashboardApi.getDashboardData);
 
-  let largestCategoryIndex = 0;
+  let largestCategoryIndex = defaultComponentId;
   let largestItemIndexes: number[] = [];
+
+  // Calculate largest Category and it's largest's item indexes.
   response.data.categories.reduce((categoryTotalAccumulator: number, currentCategory: UVCategory, categoryIndex: number) => {
+
+    categoryData.categories[categoryIndex] = {
+      config: {
+        id: currentCategory.id,
+        name: currentCategory.name,
+        value: currentCategory.value,
+        color: currentCategory.color,
+        expenseRatio: currentCategory.expenseRatio
+      },
+      selectionIndex: 0,
+      items: currentCategory.items
+    }
     let categoryTotal = currentCategory.items.reduce((itemAccumulator: number, currentItem: UVItem, itemIndex: number, items: UVItem[])=> {
       if(itemIndex > 0 && currentItem.current.amount > items[itemIndex-1].current.amount) {
         largestItemIndexes[categoryIndex] = itemIndex;
       }
       return itemAccumulator + currentItem.current.amount;
     }, 0);
+
     if(categoryTotal > categoryTotalAccumulator) {
       largestCategoryIndex = categoryIndex;
       return categoryTotal;
     }
+
+    categoryData.categories[categoryIndex].selectionIndex = largestItemIndexes[categoryIndex];
     return categoryTotalAccumulator;
   }, 0);
 
@@ -58,15 +89,30 @@ function* loadDashboard() {
   const uvNumbers: UvNumberProps[] = [expenseRatioObj, aumObj]
 
   let dashboardData = {
-    uvNumbers: uvNumbers,
-    pie: {
+    categoryData: categoryData,
+    pieCharts: [{
       config: response.data.pieConfig,
-      categories: response.data.categories
-    }
+      data: {
+        selectionIndex: 0,
+        categories: response.data.categories
+      }
+    }],
+    barCharts: [{
+      config: barChartConfig.config,
+      data: response.data.categories[defaultComponentId].items
+    }],
+    angularGauages: [{
+      config: angularGaugeConfig.config,
+      data: {
+        score: (selectedInstrument.rating > 0) ? (selectedInstrument.rating - 1) : selectedInstrument.rating,
+        items: angularGaugeConfig.data
+      }
+    }],
+    uvNumbers: uvNumbers
   };
-  yield put(updateDashboard(dashboardData));
+  yield put(loadDashboard(dashboardData));
 }
 
 export function* UvDashboardSaga() {
-  yield takeEvery(UV_DASHBOARD.LOAD, loadDashboard);
+  yield takeEvery(UV_DASHBOARD.INIT, initDashboardSaga);
 }

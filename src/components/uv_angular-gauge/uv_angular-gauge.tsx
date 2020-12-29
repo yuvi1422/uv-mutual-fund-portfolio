@@ -10,7 +10,7 @@ import { UVRootState } from '../../root.reducer';
 
 am4core.useTheme(am4themes_animated);
 
-function UvAngularGauge() {
+function UvAngularGauge(props: any) {
 
   const chart = useRef(null);
 
@@ -26,6 +26,12 @@ function UvAngularGauge() {
     return state.angularGauge.data;
   });
 
+  if(props.angularGauge && props.angularGauge.data) {
+    config = props.angularGauge.config;
+    score = props.angularGauge.data && props.angularGauge.data.score;
+    data = props.angularGauge.data && props.angularGauge.data.items;
+  }
+
   //  Grading Lookup
   function lookUpGrade(lookupScore: any, grades: any) {
     // Only change code below this line
@@ -40,7 +46,7 @@ function UvAngularGauge() {
   useLayoutEffect(() => {
 
     // Hide the gauge when score is 0
-    if(score === 0) {
+    if(score === 0 && !config) {
       return;
     }
 

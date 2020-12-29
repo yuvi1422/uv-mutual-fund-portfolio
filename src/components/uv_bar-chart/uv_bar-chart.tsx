@@ -3,42 +3,41 @@ import React, { useLayoutEffect, useRef } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
 import './uv_bar-chart.css';
-import { UVRootState } from '../../root.reducer';
 import UVItem from '../../uv_interface.item';
 import UVAmount from '../../uv_interface.amount';
-import { loadBarChartDetails } from './uv_bar-chart.actions';
-import { uvStore } from '../../uv_store';
+import { barChartColumnSelected } from './uv_bar-chart.actions';
 import uvObject from '@uv-tech/util/lib/uv-object';
 
-function UvBarChart() {
+function UvBarChart(props: any) {
+  const dispatch = useDispatch();
 
   let parentProps = {
-    valueType: useSelector((state: UVRootState) => {
-      return state.barChart.valueType;
-    }),
-    isAmountOnly : useSelector((state: UVRootState) => {
-      return state.barChart.isAmountOnly;
-    }),
-    config: useSelector((state: UVRootState) => {
-      return state.dashboard.pie && state.dashboard.pie.categories && state.dashboard.pie.categories[state.barChart.config.index];
-    })
+    valueType: 'current',
+    isAmountOnly : true,
+    config: {
+      id: 0,
+      name: 'Liquid Fund',
+      value: 0,
+      isAmountOnly: true,
+      color: '#6771dc',
+      expenseRatio: 0.17
+    }
   };
 
-  const barData = useSelector((state: UVRootState) => {
-    return state.barChart.data;
-  });
-
-  const barConfig = useSelector((state: UVRootState) => {
-    return state.barChart.config;
-  });
+  let barData = props.barChart && props.barChart.data;
+  let barConfig = props.barChart && props.barChart.config;
 
   const chart = useRef({});
 
   useLayoutEffect(() => {
+
+    if(!barConfig || !barData) {
+      return;
+    }
 
     function getChartDimensions(chartDimension: string) {
       switch(chartDimension) {
@@ -113,7 +112,7 @@ function UvBarChart() {
     });
 
     series.columns.template.events.on("hit", function(ev) {
-      uvStore.dispatch(loadBarChartDetails(parentProps.config, barData[ev.target.id]));
+      dispatch(barChartColumnSelected(props.componentId, parseInt(ev.target.id)));
     });
 
     categoryAxis.sortBySeries = series;
@@ -129,17 +128,22 @@ function UvBarChart() {
     }
     uvChart.data = getProcessedData(barData) as UVItem[];
 
-    let selectedBar = uvChart.data.reduce(function(prev: UVItem, current: UVItem) {
-      return (current.value > prev.value) ? current : prev;
+    let selectedColumnIndex = 0;
+    uvChart.data.reduce(function(prev: UVItem, current: UVItem, columnIndex: number) {
+      if(current.value > prev.value) {
+        selectedColumnIndex = columnIndex;
+        return current;
+      }
+      return prev;
     });
-    uvStore.dispatch(loadBarChartDetails(parentProps.config, selectedBar));
-
+   // dispatch(barChartColumnSelected(props.componentId, selectedColumnIndex));
+    
     chart.current = uvChart;
 
     return () => {
       uvChart.dispose();
     };
-  }, [barData, barConfig, parentProps]);
+  }, [props.componentId, dispatch, barData, barConfig, parentProps]);
 
   return (
     <div className="bar-chart-container">

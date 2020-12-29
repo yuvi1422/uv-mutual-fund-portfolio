@@ -11,34 +11,42 @@ import { UVRootState } from '../../root.reducer';
 
 function UvDashboard() {
 
-let uvNumbers = useSelector((state: UVRootState) => {
-  return state.dashboard.numbers;
-});
+  let uvNumberData = useSelector((state: UVRootState) => {
+    return state.dashboard.numbers;
+  });
 
-let uvPieData = useSelector((state: UVRootState) => {
-  return state.dashboard.pie;
-});
+  let uvPieData = useSelector((state: UVRootState) => {
+    return state.dashboard.pieCharts;
+  });
+
+  let uvBarChartData = useSelector((state: UVRootState) => {
+    return state.dashboard.barCharts;
+  });
+
+  let uvAngularGauageData = useSelector((state: UVRootState) => {
+    return state.dashboard.angularGauages;
+  });
 
   return (
     <div className="uv-dashboard" id="uv-dashboard">
       <Container>
         <Row className="uv-row">
-          <UvHeader></UvHeader>
+         <UvHeader></UvHeader>
         </Row>
         <Row className="uv-container uv-row">
           <Col md={6} xs={12}>
-            <UvPie pieData={uvPieData}></UvPie>
+            <UvPie pieData={uvPieData[0]} componentId={0}></UvPie>
           </Col>
           <Col md={6} xs={12}>
-              <UvBarChart></UvBarChart>
+              <UvBarChart barChart={uvBarChartData[0]} componentId={0}></UvBarChart>
           </Col>
         </Row>
         <Row className="uv-row">
           <Col md={4} xs={12}>
-            <UvAngularGauge></UvAngularGauge>
+            <UvAngularGauge angularGauge={uvAngularGauageData[0]} componentId={0}></UvAngularGauge>
           </Col>
           {
-            uvNumbers && uvNumbers.map((obj: any, index: any) => (
+            uvNumberData && uvNumberData.map((obj: any, index: any) => (
               <Col md={4} xs={12} key={index}>
                 <Row>
                   <Col md={{ span: 12, offset: 1 }} xs={12}>

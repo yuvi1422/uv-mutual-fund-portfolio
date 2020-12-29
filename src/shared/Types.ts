@@ -1,4 +1,10 @@
-import UvNumber from "../components/uv_number/uv_number";
+export type UVBarChartConfig = {
+  dimension ?: string;
+  categoryKey: string;
+  categoryShortKey: string;
+  valueAxis ?: object;
+  series ?: object;
+}
 
 export type UvDashboardType = {
   config ?: any;
