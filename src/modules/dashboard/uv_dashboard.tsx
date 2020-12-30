@@ -38,7 +38,9 @@ function UvDashboard() {
             <UvPie pieData={uvPieData[0]} componentId={0}></UvPie>
           </Col>
           <Col md={6} xs={12}>
-              <UvBarChart barChart={uvBarChartData[0]} componentId={0}></UvBarChart>
+              <UvBarChart componentId={0}
+                          config={uvBarChartData[0].config}
+                          data={uvBarChartData[0].data}></UvBarChart>
           </Col>
         </Row>
         <Row className="uv-row">

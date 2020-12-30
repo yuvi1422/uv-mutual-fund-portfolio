@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { memo, useLayoutEffect, useRef } from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -28,8 +28,8 @@ function UvBarChart(props: any) {
     }
   };
 
-  let barData = props.barChart && props.barChart.data;
-  let barConfig = props.barChart && props.barChart.config;
+  let barConfig = props.config;
+  let barData = props.data;
 
   const chart = useRef({});
 
@@ -136,8 +136,9 @@ function UvBarChart(props: any) {
       }
       return prev;
     });
-   // dispatch(barChartColumnSelected(props.componentId, selectedColumnIndex));
-    
+
+    dispatch(barChartColumnSelected(props.componentId, selectedColumnIndex));
+
     chart.current = uvChart;
 
     return () => {
@@ -152,4 +153,4 @@ function UvBarChart(props: any) {
   );
 }
 
-export default UvBarChart;
+export default memo(UvBarChart);
