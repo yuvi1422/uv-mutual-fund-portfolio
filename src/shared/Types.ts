@@ -21,9 +21,7 @@ export type UvNumberProps = {
       class ?: string;
     }
   };
-  data: {
-    title: number;
-    label: string;
-    subtitle ?: string;
-  }
+  title: number;
+  label: string;
+  subtitle?: string;
 }

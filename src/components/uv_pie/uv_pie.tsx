@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 
 import uvDevice from '@uv-tech/util/lib/uv-device';
 import uvObject from  '@uv-tech/util/lib/uv-object';
@@ -24,8 +24,8 @@ function UvPie(props: any) {
   const chart = useRef({});
 
 
-  let pieConfig = props.pieData && props.pieData.config;
-  let pieData = props.pieData && props.pieData.data.categories;
+  let pieConfig = props.config;
+  let pieData = props.data.categories;
 
   useEffect(() => {
     if(!pieConfig || !pieData) {
@@ -113,4 +113,4 @@ function UvPie(props: any) {
   );
 }
 
-export default UvPie;
+export default memo(UvPie);

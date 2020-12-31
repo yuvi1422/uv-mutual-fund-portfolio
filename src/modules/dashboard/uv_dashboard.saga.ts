@@ -71,19 +71,15 @@ function* initDashboardSaga() {
     config: {
       class: (instrumentExpenseRatio < categoryExpenseRatio) ? 'uv-color-success' : 'uv-color-danger'
     },
-    data: {
-      title: instrumentExpenseRatio,
-      label: 'Expense Ratio',
-      subtitle: 'Category Average: ' + categoryExpenseRatio
-    }
+    title: instrumentExpenseRatio,
+    label: 'Expense Ratio',
+    subtitle: 'Category Average: ' + categoryExpenseRatio
   }).numberData;
 
   const aumObj = new UvNumberPojo({
-    data: {
-      title: aum,
-      subtitle: 'Crore',
-      label: 'AUM',
-    }
+    title: aum,
+    subtitle: 'Crore',
+    label: 'AUM',
   }).numberData;
 
   const uvNumbers: UvNumberProps[] = [expenseRatioObj, aumObj]

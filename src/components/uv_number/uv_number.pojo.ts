@@ -17,11 +17,9 @@ export default class UvNumberPojo {
                     numberData.config.subtitle.class : '',
         }
       },
-      data: {
-        title: numberData.data.title,
-        subtitle: numberData.data.subtitle ? numberData.data.subtitle : '',
-        label: numberData.data.label ? numberData.data.label : ''
-      }
+      title: numberData.title,
+      subtitle: numberData.subtitle ? numberData.subtitle : '',
+      label: numberData.label ? numberData.label : ''
     }
   }
 

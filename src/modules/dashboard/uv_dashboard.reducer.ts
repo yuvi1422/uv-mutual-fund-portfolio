@@ -70,8 +70,8 @@ const UvDashboardReducer = (state = initialState, action: UVAction)=> {
       state.categoryData.categories[state.categoryData.selectionIndex].selectionIndex = action.data.columnIndex;
       selectedBarChart =  state.categoryData.categories[state.categoryData.selectionIndex].items[action.data.columnIndex];
       state.angularGauages[action.config.componentId].data.score = selectedBarChart.rating;
-      state.numbers[0].data.title = selectedBarChart.expenseRatio;
-      state.numbers[1].data.title = selectedBarChart.AUM;
+      state.numbers[0].title = selectedBarChart.expenseRatio;
+      state.numbers[1].title = selectedBarChart.AUM;
       return {
         ...state,
         angularGauages: [...tmpAngularGuages]
