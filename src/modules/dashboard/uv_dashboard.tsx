@@ -47,7 +47,10 @@ function UvDashboard() {
         </Row>
         <Row className="uv-row">
           <Col md={4} xs={12}>
-            <UvAngularGauge angularGauge={uvAngularGauageData[0]} componentId={0}></UvAngularGauge>
+            <UvAngularGauge componentId={0}
+                            config={uvAngularGauageData[0].config}
+                            score={uvAngularGauageData[0].data.score}
+                            data={uvAngularGauageData[0].data.items}></UvAngularGauge>
           </Col>
           {
             uvNumberData && uvNumberData.map((obj: any, index: any) => (

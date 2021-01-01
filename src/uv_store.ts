@@ -10,7 +10,6 @@ import { runAllSaga } from './root.sagas';
 
 import { initDashboard } from './modules/dashboard/uv_dashboard.actions';
 import { loadHeader } from './components/uv_header/uv_header.actions';
-import { loadAngularGauge } from './components/uv_angular-gauge/uv_angular-gauge.actions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -24,4 +23,3 @@ runAllSaga(sagaMiddleware);
 
 uvStore.dispatch(initDashboard());
 uvStore.dispatch(loadHeader(headerData.config));
-uvStore.dispatch(loadAngularGauge(angularGaugeData.config, angularGaugeData.data));

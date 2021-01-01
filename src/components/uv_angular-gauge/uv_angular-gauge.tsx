@@ -5,8 +5,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 import './uv_angular-gauge.css';
-import { useSelector } from 'react-redux';
-import { UVRootState } from '../../root.reducer';
+import { UVAngularGaugeConfig, UVAngularGaugeData } from './../../shared/Types';
 
 am4core.useTheme(am4themes_animated);
 
@@ -14,23 +13,13 @@ function UvAngularGauge(props: any) {
 
   const chart = useRef(null);
 
-  let score = useSelector((state: UVRootState) => {
-    return state.angularGauge.score;
-  });
+  let score: number;
+  let config: UVAngularGaugeConfig;
+  let data: UVAngularGaugeData[];
 
-  let config = useSelector((state: UVRootState) => {
-    return state.angularGauge.config;
-  });
-
-  let data = useSelector((state: UVRootState) => {
-    return state.angularGauge.data;
-  });
-
-  if(props.angularGauge && props.angularGauge.data) {
-    config = props.angularGauge.config;
-    score = props.angularGauge.data && props.angularGauge.data.score;
-    data = props.angularGauge.data && props.angularGauge.data.items;
-  }
+  config = props.config;
+  score = props.score;
+  data = props.data;
 
   //  Grading Lookup
   function lookUpGrade(lookupScore: any, grades: any) {
@@ -45,11 +34,10 @@ function UvAngularGauge(props: any) {
 
   useLayoutEffect(() => {
 
-    // Hide the gauge when score is 0
-    if(score === 0 && !config) {
+    // Hide the gauge when score, config or data is not available.
+    if(!score || !config || !data) {
       return;
     }
-
 
     config.score = (score && score >= config.chartMin && score <= config.chartMax) ? score : config.score;
 
@@ -155,6 +143,7 @@ function UvAngularGauge(props: any) {
     };
 
 }, [score, config, data]);
+
   return (
     <div className="uv-angular-gauge-container">
       <div id="gaugeDiv"></div>
