@@ -1,9 +1,8 @@
 import axios from 'axios';
+import * as appData from './../../shared/uv_app-data.json';
 
 const getDashboardData = ()=> {
-  const url = 'https://demo1926272.mockable.io/getInvestments';
-
-  return axios.get(url);
+  return axios.get(appData.config.apis.dashboard.url);
 }
 
 const UvDashboardApi = {
