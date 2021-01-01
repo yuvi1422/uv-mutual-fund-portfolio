@@ -7,13 +7,6 @@ const initDashboard = () => {
   }
 }
 
-const loadDashboard = (uvDashboardData: UvDashboardType) => {
-  return {
-    type: UV_DASHBOARD.LOAD,
-    data: uvDashboardData
-  }
-}
-
 const updateDashboard = (uvDashboardData: UvDashboardType) => {
   return {
     type: UV_DASHBOARD.UPDATE,
@@ -23,6 +16,5 @@ const updateDashboard = (uvDashboardData: UvDashboardType) => {
 
 export {
   initDashboard,
-  loadDashboard,
   updateDashboard
 }

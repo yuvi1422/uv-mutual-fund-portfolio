@@ -46,24 +46,27 @@ function UvDashboard() {
           </Col>
         </Row>
         <Row className="uv-row">
-          <Col md={4} xs={12}>
-            <UvAngularGauge componentId={0}
-                            config={uvAngularGauageData[0].config}
-                            score={uvAngularGauageData[0].data.score}
-                            data={uvAngularGauageData[0].data.items}></UvAngularGauge>
-          </Col>
+          { uvAngularGauageData[0].data.score > 1 &&
+            <Col md={4} xs={12}>
+              <UvAngularGauge componentId={0}
+                              config={uvAngularGauageData[0].config}
+                              score={uvAngularGauageData[0].data.score}
+                              data={uvAngularGauageData[0].data.items}></UvAngularGauge>
+            </Col>
+          }
           {
             uvNumberData && uvNumberData.map((obj: any, index: any) => (
-              <Col md={4} xs={12} key={index}>
-                <Row>
-                  <Col md={{ span: 12, offset: 1 }} xs={12}>
-                    <UvNumber config={obj.config}
-                              title={obj.title}
-                              subtitle={obj.subtitle}
-                              label={obj.label}/>
-                  </Col>
-                </Row>
-              </Col>
+              obj.title !== -1 &&
+                <Col md={4} xs={12} key={index}>
+                  <Row>
+                    <Col md={{ span: 12, offset: 1 }} xs={12}>
+                      <UvNumber config={obj.config}
+                                title={obj.title}
+                                subtitle={obj.subtitle}
+                                label={obj.label}/>
+                    </Col>
+                  </Row>
+                </Col>
             ))
           }
         </Row>

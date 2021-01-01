@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 
 import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
 import { UVCategory, UVItem, UvNumberProps } from '../../shared/Types';
-import { loadDashboard } from './uv_dashboard.actions';
+import { updateDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
 import UV_DASHBOARD from './uv_dashboard.constants';
@@ -87,7 +87,7 @@ function* initDashboardSaga() {
     }],
     uvNumbers: uvNumbers
   };
-  yield put(loadDashboard(dashboardData));
+  yield put(updateDashboard(dashboardData));
 }
 
 /**
@@ -101,15 +101,15 @@ const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: U
   let instrumentValue: number;
 
   return appData.data.numbers.map((numberObj) => {
-    categoryValue = (selectedCategory && selectedCategory.config && selectedCategory.config[numberObj.keyName] as number) || 0;
-    instrumentValue = (selectedInstrument && selectedInstrument[numberObj.keyName] as number) || 0;
+    categoryValue = (selectedCategory && selectedCategory.config && selectedCategory.config[numberObj.keyName] as number) || -1;
+    instrumentValue = (selectedInstrument && selectedInstrument[numberObj.keyName] as number) || -1;
     return new UvNumberPojo({
       config: {
         class: numberObj.isSingleColor ? '' : ((instrumentValue < categoryValue) ? 'uv-color-success' : 'uv-color-danger')
       },
       title: instrumentValue,
       label: numberObj.title,
-      subtitle: numberObj.subTitlePrefix + categoryValue
+      subtitle: numberObj.subTitlePrefix + (categoryValue !== -1 ? categoryValue : '')
     }).numberData
   });
 }

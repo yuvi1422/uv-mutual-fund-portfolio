@@ -41,7 +41,7 @@ const initialState = {
 const UvDashboardReducer = (state = initialState, action: UVAction)=> {
   let tmpBarCharts, tmpAngularGuages, selectedCategory, selectedBarChart;
   switch(action.type) {
-    case UV_DASHBOARD.LOAD:
+    case UV_DASHBOARD.UPDATE:
       return {
         ...state,
         categoryData: action.data.categoryData,
