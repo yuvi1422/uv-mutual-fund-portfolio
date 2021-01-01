@@ -1,10 +1,10 @@
-import { UvNumberProps } from "../../shared/Types";
+import { UVNumberProps } from "../../shared/Types";
 
 export default class UvNumberPojo {
 
-  private _numberData: UvNumberProps;
+  private _numberData: UVNumberProps;
 
-  constructor(numberData: UvNumberProps) {
+  constructor(numberData: UVNumberProps) {
     this._numberData = {
       config: {
         class: (numberData.config && numberData.config.class) ? numberData.config.class : '',

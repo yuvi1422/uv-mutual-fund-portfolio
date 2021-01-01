@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
-import { UVCategory, UVItem, UvNumberProps } from '../../shared/Types';
+import { UVCategory, UVItem, UVNumberProps } from '../../shared/Types';
 import { updateDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
@@ -63,7 +63,7 @@ function* initDashboardSaga() {
   const selectedCategory = categoryData.categories[largestCategoryIndex];
   const selectedInstrument = selectedCategory.items[largestItemIndexes[largestCategoryIndex]];
 
-  const uvNumbers: UvNumberProps[] = mapNumberComponents(selectedCategory, selectedInstrument);
+  const uvNumbers: UVNumberProps[] = mapNumberComponents(selectedCategory, selectedInstrument);
 
   let dashboardData = {
     categoryData: categoryData,

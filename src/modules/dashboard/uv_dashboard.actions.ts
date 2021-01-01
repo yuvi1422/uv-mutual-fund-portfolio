@@ -1,5 +1,5 @@
 import UV_DASHBOARD from "./uv_dashboard.constants";
-import { UvDashboardType } from './../../shared/Types';
+import { UVDashboardType } from './../../shared/Types';
 
 const initDashboard = () => {
   return {
@@ -7,7 +7,7 @@ const initDashboard = () => {
   }
 }
 
-const updateDashboard = (uvDashboardData: UvDashboardType) => {
+const updateDashboard = (uvDashboardData: UVDashboardType) => {
   return {
     type: UV_DASHBOARD.UPDATE,
     data: uvDashboardData

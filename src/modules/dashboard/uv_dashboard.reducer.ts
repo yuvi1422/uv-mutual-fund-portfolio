@@ -3,7 +3,7 @@ import UV_PIE from "../../components/uv_pie/uv_pie.constants";
 import { UVAction } from '../../shared/Types';
 import { UVItem } from '../../shared/Types';
 import UV_DASHBOARD from "./uv_dashboard.constants";
-import { UVCategory, UvNumberProps } from './../../shared/Types';
+import { UVCategory, UVNumberProps } from './../../shared/Types';
 import { mapNumberComponents } from "./uv_dashboard.saga";
 
 const initialState = {
@@ -35,7 +35,7 @@ const initialState = {
       }
     }
   ],
-  numbers: [] as UvNumberProps []
+  numbers: [] as UVNumberProps []
 };
 
 const UvDashboardReducer = (state = initialState, action: UVAction)=> {

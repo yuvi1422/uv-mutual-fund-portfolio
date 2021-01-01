@@ -22,7 +22,6 @@ function UvPie(props: any) {
 
   const chart = useRef({});
 
-
   let pieConfig = props.config;
   let pieData = props.data.categories;
 

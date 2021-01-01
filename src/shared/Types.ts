@@ -1,29 +1,6 @@
-export type UVBarChartConfig = {
-  dimension ?: string;
-  categoryKey: string;
-  categoryShortKey: string;
-  valueAxis ?: object;
-  series ?: object;
-}
-
-export type UvDashboardType = {
+export type UVDashboardType = {
   config ?: any;
-  uvNumbers: UvNumberProps[]
-}
-
-export type UvNumberProps = {
-  config ?: {
-    class ?: string;
-    title ?: {
-      class ?: string;
-    };
-    subtitle ?: {
-      class ?: string;
-    }
-  };
-  title: number;
-  label: string;
-  subtitle?: string;
+  uvNumbers: UVNumberProps[]
 }
 
 export type UVCategoryConfig = {
@@ -78,6 +55,14 @@ export type UVAction = {
   data ?: any;
 };
 
+export type UVBarChartConfig = {
+  dimension ?: string;
+  categoryKey: string;
+  categoryShortKey: string;
+  valueAxis ?: object;
+  series ?: object;
+}
+
 export type UVAngularGaugeConfig = {
   chartMax: number;
   chartMin: number;
@@ -108,3 +93,18 @@ export type UVAngularGaugeData = {
   lowScore: number,
   highScore: number
 };
+
+export type UVNumberProps = {
+  config ?: {
+    class ?: string;
+    title ?: {
+      class ?: string;
+    };
+    subtitle ?: {
+      class ?: string;
+    }
+  };
+  title: number;
+  label: string;
+  subtitle?: string;
+}
