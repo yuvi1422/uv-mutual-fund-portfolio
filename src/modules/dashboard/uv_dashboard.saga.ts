@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
-import { UVCategory, UVItem, UVNumberProps } from '../../shared/Types';
+import { UVAmount, UVCategory, UVItem, UVNumberProps } from '../../shared/Types';
 import { updateDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
@@ -114,6 +114,40 @@ const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: U
   });
 }
 
+/**
+ * @description Function to get sector total.
+ * @param category Category for the Pie chart
+ * @param valueType Value type.
+ */
+function getSectorTotal(category: UVCategory, valueType: string) {
+  let total = 0;
+  for (const item of category.items) {
+    let itemValue = item[valueType] as UVAmount;
+    if(category.isAmountOnly && itemValue && itemValue.amount) {
+      total += itemValue.amount;
+    } else if(itemValue && itemValue.price && itemValue.quantity){
+      total += itemValue.price * itemValue.quantity;
+    }
+  }
+  return total;
+}
+
+/**
+ * @description Function to get processed pie chart data.
+ * @param rawPieData - Raw pie chart data
+ */
+const getProcessedPieData = (sectors: UVCategory[], valueType: string) => {
+  const processedSectors = [];
+  for (const sector of sectors) {
+    sector.value = getSectorTotal(sector, valueType);
+    if (sector.value > 0) {
+      processedSectors.push(sector);
+    }
+  }
+  return processedSectors;
+}
+
 export {
-  mapNumberComponents
+  mapNumberComponents,
+  getProcessedPieData
 }

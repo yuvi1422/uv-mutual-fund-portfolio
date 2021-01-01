@@ -9,9 +9,9 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
 
 import './uv_pie.css';
-import { UVCategory, UVAmount } from '../../shared/Types';
 import { useDispatch } from 'react-redux';
 import { selectedPieSlice } from './uv_pie.actions';
+import { getProcessedPieData } from '../../modules/dashboard/uv_dashboard.saga';
 
 am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
@@ -31,35 +31,11 @@ function UvPie(props: any) {
     }
     let valueType = 'current';
 
-    function getSectorTotal(category: UVCategory) {
-      let total = 0;
-      for (const item of category.items) {
-        let itemValue = item[valueType] as UVAmount;
-        if(category.isAmountOnly && itemValue && itemValue.amount) {
-          total += itemValue.amount;
-        } else if(itemValue && itemValue.price && itemValue.quantity){
-          total += itemValue.price * itemValue.quantity;
-        }
-      }
-      return total;
-    }
-
-    function getProcessedData(sectors: UVCategory[]) {
-      const processedSectors = [];
-      for (const sector of sectors) {
-        sector.value = getSectorTotal(sector);
-        if (sector.value > 0) {
-          processedSectors.push(sector);
-        }
-      }
-      return processedSectors;
-    }
-
     const uvChart = am4core.create('pieDiv', am4charts.PieChart3D);
 
     uvChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    uvChart.data = getProcessedData(pieData);
+    uvChart.data = getProcessedPieData(pieData, valueType);
 
       const series = uvChart.series.push(new am4charts.PieSeries3D());
 
