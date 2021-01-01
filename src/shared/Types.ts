@@ -1,8 +1,3 @@
-export type UVDashboardType = {
-  config ?: any;
-  uvNumbers: UVNumberProps[]
-}
-
 export type UVCategoryConfig = {
   [key: string]: number | string;
   id: number;
@@ -54,6 +49,26 @@ export type UVAction = {
   config ?: any;
   data ?: any;
 };
+
+export type UVDashboardType = {
+  config ?: any;
+  uvNumbers: UVNumberProps[]
+}
+
+export type UVPieConfig = {
+  series: any;
+}
+
+export type UVPieData = {
+  categories: UVCategory[]
+}
+
+export type UVPieProps = {
+  componentId: number;
+  config: UVPieConfig;
+  valueType: string;
+  data: UVPieData;
+}
 
 export type UVBarChartConfig = {
   dimension ?: string;

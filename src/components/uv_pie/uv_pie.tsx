@@ -12,11 +12,12 @@ import './uv_pie.css';
 import { useDispatch } from 'react-redux';
 import { selectedPieSlice } from './uv_pie.actions';
 import { getProcessedPieData } from '../../modules/dashboard/uv_dashboard.saga';
+import { UVPieProps } from '../../shared/Types';
 
 am4core.useTheme(am4themes_material);
 am4core.useTheme(am4themes_animated);
 
-function UvPie(props: any) {
+function UVPie(props: UVPieProps) {
 
   const dispatch = useDispatch();
 
@@ -29,13 +30,12 @@ function UvPie(props: any) {
     if(!pieConfig || !pieData) {
       return;
     }
-    let valueType = 'current';
 
     const uvChart = am4core.create('pieDiv', am4charts.PieChart3D);
 
     uvChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    uvChart.data = getProcessedPieData(pieData, valueType);
+    uvChart.data = getProcessedPieData(pieData, props.valueType);
 
       const series = uvChart.series.push(new am4charts.PieSeries3D());
 
@@ -78,7 +78,7 @@ function UvPie(props: any) {
     return () => {
       uvChart.dispose();
     };
-  }, [props.componentId, dispatch, pieConfig, pieData]);
+  }, [props.componentId, props.valueType, dispatch, pieConfig, pieData]);
 
   return (
     <div className="pie-container">
@@ -87,4 +87,4 @@ function UvPie(props: any) {
   );
 }
 
-export default memo(UvPie);
+export default memo(UVPie);

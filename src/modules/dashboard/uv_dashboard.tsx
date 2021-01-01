@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import UvHeader from './../../components/uv_header/uv_header';
-import UvPie from './../../components/uv_pie/uv_pie';
+import UVPie from './../../components/uv_pie/uv_pie';
 import UvBarChart from './../../components/uv_bar-chart/uv_bar-chart';
 import UvAngularGauge from './../../components/uv_angular-gauge/uv_angular-gauge';
 import UvNumber from './../../components/uv_number/uv_number';
@@ -35,9 +35,10 @@ function UvDashboard() {
         </Row>
         <Row className="uv-container uv-row">
           <Col md={6} xs={12}>
-            <UvPie componentId={0}
+            <UVPie componentId={0}
                    config={uvPieData[0].config}
-                   data={uvPieData[0].data}></UvPie>
+                   valueType = {'current'}
+                   data={uvPieData[0].data}></UVPie>
           </Col>
           <Col md={6} xs={12}>
               <UvBarChart componentId={0}
