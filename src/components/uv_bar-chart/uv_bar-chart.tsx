@@ -1,4 +1,4 @@
-import React, { memo, useLayoutEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -32,7 +32,7 @@ function UvBarChart(props: any) {
 
   const chart = useRef({});
 
-  useLayoutEffect(() => {
+  useEffect(() => {
 
     if(!barConfig || !barData) {
       return;

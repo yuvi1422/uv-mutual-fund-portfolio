@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -32,7 +32,7 @@ function UvAngularGauge(props: any) {
     return null;
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
 
     // Hide the gauge when score, config or data is not available.
     if(!score || !config || !data) {
