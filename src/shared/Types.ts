@@ -50,6 +50,22 @@ export type UVAction = {
   data ?: any;
 };
 
+export type UVHeaderConfig = {
+  title: string;
+  theme ?: string;
+  alt ?: string;
+  logo ?: {
+    logo : string;
+    alt ?: string;
+    width ?: string;
+  }
+  repository ?: {
+    name ?: string;
+    logo: string;
+    url: string;
+  }
+};
+
 export type UVDashboardType = {
   config ?: any;
   uvNumbers: UVNumberProps[]
