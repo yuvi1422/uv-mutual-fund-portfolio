@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga/effects';
-import UVAction from '../../uv_interface.action';
+import { UVAction } from '../../shared/Types';
 import UV_ANGULAR_GAUGE from './uv_angular-gauge.constants';
 
 function* updateAngularGauge(angularGaugeData: UVAction) {

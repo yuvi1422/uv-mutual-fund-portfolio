@@ -1,20 +1,15 @@
 import UV_BAR_CHART from "../../components/uv_bar-chart/uv_bar-chart.constants";
 import UV_PIE from "../../components/uv_pie/uv_pie.constants";
-import UVAction from "../../uv_interface.action";
-import UVItem from "../../uv_interface.item";
+import { UVAction } from '../../shared/Types';
+import { UVItem } from '../../shared/Types';
 import UV_DASHBOARD from "./uv_dashboard.constants";
-import { UvNumberProps } from './../../shared/Types';
+import { UVCategory, UvNumberProps } from './../../shared/Types';
+import { mapNumberComponents } from "./uv_dashboard.saga";
 
 const initialState = {
   categoryData: {
     selectionIndex: 0,
-    categories: [   // Check object structure in dashboard Saga Load method to be in sync with this object.
-      {
-        config: {},
-        selectionIndex: 0,
-        items: [] as UVItem[]
-      }
-    ]
+    categories: [] as UVCategory[]
   },
   pieCharts: [
     {
@@ -44,7 +39,7 @@ const initialState = {
 };
 
 const UvDashboardReducer = (state = initialState, action: UVAction)=> {
-  let tmpBarCharts, tmpAngularGuages, selectedBarChart;
+  let tmpBarCharts, tmpAngularGuages, selectedCategory, selectedBarChart;
   switch(action.type) {
     case UV_DASHBOARD.LOAD:
       return {
@@ -67,11 +62,12 @@ const UvDashboardReducer = (state = initialState, action: UVAction)=> {
 
     case UV_BAR_CHART.SELECT:
       tmpAngularGuages = state.angularGauages;
-      state.categoryData.categories[state.categoryData.selectionIndex].selectionIndex = action.data.columnIndex;
-      selectedBarChart =  state.categoryData.categories[state.categoryData.selectionIndex].items[action.data.columnIndex];
+      selectedCategory = state.categoryData.categories[state.categoryData.selectionIndex];
+      selectedCategory.selectionIndex = action.data.columnIndex;
+      selectedBarChart =  selectedCategory.items[action.data.columnIndex];
       state.angularGauages[action.config.componentId].data.score = selectedBarChart.rating;
-      state.numbers[0].title = selectedBarChart.expenseRatio;
-      state.numbers[1].title = selectedBarChart.AUM;
+
+      state.numbers = mapNumberComponents(selectedCategory, selectedBarChart);
       return {
         ...state,
         angularGauages: [...tmpAngularGuages]

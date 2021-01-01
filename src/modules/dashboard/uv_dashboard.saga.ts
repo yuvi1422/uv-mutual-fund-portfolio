@@ -1,8 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
-import { UvNumberProps } from '../../shared/Types';
-import UVCategory from '../../uv_interface.category';
-import UVItem from '../../uv_interface.item';
+import { UVCategory, UVItem, UvNumberProps } from '../../shared/Types';
 import { loadDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
@@ -13,16 +11,15 @@ import angularGaugeConfig from './../../components/uv_angular-gauge/uv_angular-g
 
 const defaultComponentId = 0;
 
+export function* UvDashboardSaga() {
+  yield takeEvery(UV_DASHBOARD.INIT, initDashboardSaga);
+}
+
 function* initDashboardSaga() {
 
   let categoryData = {
     selectionIndex: 0,
-    categories: [{
-        config: {},
-        selectionIndex: 0,
-        items: [] as UVItem[]
-      }
-    ]
+    categories: [] as UVCategory[]
   };
 
   let response = yield call(UvDashboardApi.getDashboardData);
@@ -31,7 +28,7 @@ function* initDashboardSaga() {
   let largestItemIndexes: number[] = [];
 
   // Calculate largest Category and it's largest's item indexes.
-  response.data.categories.reduce((categoryTotalAccumulator: number, currentCategory: UVCategory, categoryIndex: number) => {
+  response.data.categories.reduce((categoryTotalAccumulator: number, currentCategory: any, categoryIndex: number) => {
 
     categoryData.categories[categoryIndex] = {
       config: {
@@ -60,29 +57,10 @@ function* initDashboardSaga() {
     return categoryTotalAccumulator;
   }, 0);
 
-  const selectedCategory = response.data.categories[largestCategoryIndex];
+  const selectedCategory = categoryData.categories[largestCategoryIndex];
   const selectedInstrument = selectedCategory.items[largestItemIndexes[largestCategoryIndex]];
 
-  const instrumentExpenseRatio = selectedInstrument.expenseRatio;
-  const categoryExpenseRatio = selectedCategory.expenseRatio;
-  const aum = selectedInstrument.AUM;
-
-  const expenseRatioObj = new UvNumberPojo({
-    config: {
-      class: (instrumentExpenseRatio < categoryExpenseRatio) ? 'uv-color-success' : 'uv-color-danger'
-    },
-    title: instrumentExpenseRatio,
-    label: 'Expense Ratio',
-    subtitle: 'Category Average: ' + categoryExpenseRatio
-  }).numberData;
-
-  const aumObj = new UvNumberPojo({
-    title: aum,
-    subtitle: 'Crore',
-    label: 'AUM',
-  }).numberData;
-
-  const uvNumbers: UvNumberProps[] = [expenseRatioObj, aumObj]
+  const uvNumbers: UvNumberProps[] = mapNumberComponents(selectedCategory, selectedInstrument);
 
   let dashboardData = {
     categoryData: categoryData,
@@ -109,6 +87,35 @@ function* initDashboardSaga() {
   yield put(loadDashboard(dashboardData));
 }
 
-export function* UvDashboardSaga() {
-  yield takeEvery(UV_DASHBOARD.INIT, initDashboardSaga);
+/**
+ * @description Function to compose and return number components.
+ * @param selectedCategory - Selected Category
+ * @param selectedInstrument - Selected Investment Instrument or plan
+ */
+const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: UVItem) => {
+
+  const instrumentExpenseRatio = selectedInstrument.expenseRatio;
+  const categoryExpenseRatio = selectedCategory.config.expenseRatio;
+  const aum = selectedInstrument.AUM;
+
+  const numberObj1 = new UvNumberPojo({
+    config: {
+      class: (instrumentExpenseRatio < categoryExpenseRatio) ? 'uv-color-success' : 'uv-color-danger'
+    },
+    title: instrumentExpenseRatio,
+    label: 'Expense Ratio',
+    subtitle: 'Category Average: ' + categoryExpenseRatio
+  }).numberData;
+
+  const aumObj = new UvNumberPojo({
+    title: aum,
+    subtitle: 'Crore',
+    label: 'AUM',
+  }).numberData;
+
+  return [numberObj1, aumObj]
+}
+
+export {
+  mapNumberComponents
 }

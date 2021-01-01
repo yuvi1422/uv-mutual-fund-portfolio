@@ -1,4 +1,4 @@
-import UVAction from '../../uv_interface.action';
+import { UVAction } from '../../shared/Types';
 import UV_ANGULAR_GAUGE from './uv_angular-gauge.constants';
 
 const initialState = {

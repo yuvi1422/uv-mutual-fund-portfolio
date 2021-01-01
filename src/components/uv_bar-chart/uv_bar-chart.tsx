@@ -7,8 +7,7 @@ import { useDispatch } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
 import './uv_bar-chart.css';
-import UVItem from '../../uv_interface.item';
-import UVAmount from '../../uv_interface.amount';
+import { UVItem, UVAmount } from '../../shared/Types';
 import { barChartColumnSelected } from './uv_bar-chart.actions';
 import uvObject from '@uv-tech/util/lib/uv-object';
 

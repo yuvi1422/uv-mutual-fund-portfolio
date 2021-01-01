@@ -9,8 +9,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
 
 import './uv_pie.css';
-import UVCategory from '../../uv_interface.category';
-import UVAmount from '../../uv_interface.amount';
+import { UVCategory, UVAmount } from '../../shared/Types';
 import { useDispatch } from 'react-redux';
 import { selectedPieSlice } from './uv_pie.actions';
 
