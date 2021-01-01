@@ -115,11 +115,11 @@ const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: U
 }
 
 /**
- * @description Function to get sector total.
+ * @description Function to get category total.
  * @param category Category for the Pie chart
  * @param valueType Value type.
  */
-function getSectorTotal(category: UVCategory, valueType: string) {
+function getCategoryTotal(category: UVCategory, valueType: string) {
   let total = 0;
   for (const item of category.items) {
     let itemValue = item[valueType] as UVAmount;
@@ -134,17 +134,18 @@ function getSectorTotal(category: UVCategory, valueType: string) {
 
 /**
  * @description Function to get processed pie chart data.
+ *  - Only Categories with positive data will be displayed.
  * @param rawPieData - Raw pie chart data
  */
-const getProcessedPieData = (sectors: UVCategory[], valueType: string) => {
-  const processedSectors = [];
-  for (const sector of sectors) {
-    sector.value = getSectorTotal(sector, valueType);
-    if (sector.value > 0) {
-      processedSectors.push(sector);
+const getProcessedPieData = (categories: UVCategory[], valueType: string) => {
+  const processedCategories = [];
+  for (const category of categories) {
+    category.value = getCategoryTotal(category, valueType);
+    if (category.value > 0) {
+      processedCategories.push(category);
     }
   }
-  return processedSectors;
+  return processedCategories;
 }
 
 export {
