@@ -8,14 +8,6 @@
   --color-faded: #f7f7f7;
 }
 
-.uv-font-medium {
-  font-family: 'IBM Plex Serif', serif;
-}
-
-.uv-text-center {
-  text-align: center;
-}
-
 /* Color clases for themes started */
 .uv-background-color-primary {
   background-color: var(--color-primary);
@@ -61,3 +53,18 @@
   color: var(--color-faded);
 }
 /* Color clases for themes started */
+
+
+
+.uv-font-medium {
+  font-family: 'IBM Plex Serif', serif;
+}
+
+.uv-text-center {
+  text-align: center;
+}
+
+.uv-component-label {
+  font-size: 2.5rem;
+  text-align: center;
+}
