@@ -1,8 +1,8 @@
 import axios from 'axios';
-import * as appData from './../../shared/uv_app-data.json';
+import * as dashboardData from './uv_dashboard.json';
 
 const getDashboardData = ()=> {
-  return axios.get(appData.config.apis.dashboard.url);
+  return axios.get(dashboardData.config.apis.dashboard.url);
 }
 
 const UvDashboardApi = {
