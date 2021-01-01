@@ -1,0 +1,22 @@
+{
+  "config": {
+    "initialIndex": 0,
+    "font": "medium"
+  },
+  "data": {
+    "numbers": [
+      {
+        "keyName": "expenseRatio",
+        "title": "Expense Ratio",
+        "subTitlePrefix": "Category Average: ",
+        "isSingleColor": false
+      },
+      {
+        "keyName": "AUM",
+        "title": "AUM",
+        "subTitlePrefix": "Crore",
+        "isSingleColor": true
+      }
+    ]
+  }
+}

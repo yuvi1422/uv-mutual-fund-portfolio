@@ -27,6 +27,7 @@ export type UvNumberProps = {
 }
 
 export type UVCategoryConfig = {
+  [key: string]: number | string;
   id: number;
   name: string;
   value: string;

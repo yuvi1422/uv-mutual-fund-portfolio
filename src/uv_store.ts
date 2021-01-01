@@ -3,7 +3,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import * as headerData from './components/uv_header/uv_header.json';
-import * as angularGaugeData from './components/uv_angular-gauge/uv_angular-gauge.json';
 
 import { rootReducer } from './root.reducer';
 import { runAllSaga } from './root.sagas';
@@ -19,7 +18,6 @@ export const uvStore = createStore(
 );
 
 runAllSaga(sagaMiddleware);
-
 
 uvStore.dispatch(initDashboard());
 uvStore.dispatch(loadHeader(headerData.config));

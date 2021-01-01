@@ -1,10 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+
 import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
 import { UVCategory, UVItem, UvNumberProps } from '../../shared/Types';
 import { loadDashboard } from './uv_dashboard.actions';
 
 import UvDashboardApi from './uv_dashboard.api';
 import UV_DASHBOARD from './uv_dashboard.constants';
+
+import * as appData from './../../shared/uv_app-data.json';
 
 import barChartConfig from './../../components/uv_bar-chart/uv_bar-chart.json';
 import angularGaugeConfig from './../../components/uv_angular-gauge/uv_angular-gauge.json';
@@ -24,7 +27,7 @@ function* initDashboardSaga() {
 
   let response = yield call(UvDashboardApi.getDashboardData);
 
-  let largestCategoryIndex = defaultComponentId;
+  let largestCategoryIndex = 0;
   let largestItemIndexes: number[] = [];
 
   // Calculate largest Category and it's largest's item indexes.
@@ -94,26 +97,21 @@ function* initDashboardSaga() {
  */
 const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: UVItem) => {
 
-  const instrumentExpenseRatio = selectedInstrument.expenseRatio;
-  const categoryExpenseRatio = selectedCategory.config.expenseRatio;
-  const aum = selectedInstrument.AUM;
+  let categoryValue: number;
+  let instrumentValue: number;
 
-  const numberObj1 = new UvNumberPojo({
-    config: {
-      class: (instrumentExpenseRatio < categoryExpenseRatio) ? 'uv-color-success' : 'uv-color-danger'
-    },
-    title: instrumentExpenseRatio,
-    label: 'Expense Ratio',
-    subtitle: 'Category Average: ' + categoryExpenseRatio
-  }).numberData;
-
-  const aumObj = new UvNumberPojo({
-    title: aum,
-    subtitle: 'Crore',
-    label: 'AUM',
-  }).numberData;
-
-  return [numberObj1, aumObj]
+  return appData.data.numbers.map((numberObj) => {
+    categoryValue = (selectedCategory && selectedCategory.config && selectedCategory.config[numberObj.keyName] as number) || 0;
+    instrumentValue = (selectedInstrument && selectedInstrument[numberObj.keyName] as number) || 0;
+    return new UvNumberPojo({
+      config: {
+        class: numberObj.isSingleColor ? '' : ((instrumentValue < categoryValue) ? 'uv-color-success' : 'uv-color-danger')
+      },
+      title: instrumentValue,
+      label: numberObj.title,
+      subtitle: numberObj.subTitlePrefix + categoryValue
+    }).numberData
+  });
 }
 
 export {

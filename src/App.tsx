@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import * as appData from './uv_app-data.json';
+import * as appData from './shared/uv_app-data.json';
 
 import UvDashboard from './modules/dashboard/uv_dashboard';
 
