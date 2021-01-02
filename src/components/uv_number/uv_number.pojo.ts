@@ -1,6 +1,6 @@
 import { UVNumberProps } from "../../shared/Types";
 
-export default class UvNumberPojo {
+export default class UVNumberPojo {
 
   private _numberData: UVNumberProps;
 

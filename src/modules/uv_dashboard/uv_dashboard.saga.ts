@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
+import UVNumberPojo from '../../components/uv_number/uv_number.pojo';
 import { UVAmount, UVCategory, UVItem, UVNumberProps } from '../../shared/Types';
 import { updateDashboard } from './uv_dashboard.actions';
 
@@ -103,7 +103,7 @@ const mapNumberComponents = (selectedCategory: UVCategory, selectedInstrument: U
   return appData.data.numbers.map((numberObj) => {
     categoryValue = (selectedCategory && selectedCategory.config && selectedCategory.config[numberObj.keyName] as number) || -1;
     instrumentValue = (selectedInstrument && selectedInstrument[numberObj.keyName] as number) || -1;
-    return new UvNumberPojo({
+    return new UVNumberPojo({
       config: {
         class: numberObj.isSingleColor ? '' : ((instrumentValue < categoryValue) ? 'uv-color-success' : 'uv-color-danger')
       },

@@ -9,7 +9,7 @@ import { UVAngularGaugeConfig, UVAngularGaugeData } from './../../shared/Types';
 
 am4core.useTheme(am4themes_animated);
 
-function UvAngularGauge(props: any) {
+function UVAngularGauge(props: any) {
 
   const chart = useRef(null);
 
@@ -150,4 +150,4 @@ function UvAngularGauge(props: any) {
     </div>
   )
 }
-export default UvAngularGauge;
+export default UVAngularGauge;
