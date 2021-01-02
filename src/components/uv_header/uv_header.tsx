@@ -1,26 +1,25 @@
 import React, { memo } from 'react';
-import { useSelector } from 'react-redux';
 
 import './uv_header.css';
-import { UVRootState } from '../../root.reducer';
+import { UVHeaderProps } from '../../shared/Types';
 
-function UVHeader() {
-  let headerData = useSelector((state: UVRootState) => {
-    return state.header.data;
-  });
+function UVHeader(props: UVHeaderProps) {
 
   return (
     <div className="uv-header-container">
       <div id="headerDiv">
-        <div className= {'toolbar ' + (headerData.theme ? headerData.theme : 'primary')} role="banner">
-          <a href={headerData.primaryWebsite} target="_blank" rel="noopener noreferrer">
-            <img width={headerData.logo.width} alt={headerData.alt} src={headerData.logo.logo}/>
+        <div className= {'toolbar ' + (props.data.theme ? props.data.theme : 'primary')} role="banner">
+          <a href={props.data.primaryWebsite} target="_blank" rel="noopener noreferrer">
+            <img width={props.data.logo && props.data.logo.width}
+                 alt={props.data.alt}
+                 src={props.data.logo && props.data.logo.logo}/>
           </a>
-          <span>{headerData.title}</span>
+          <span>{props.data.title}</span>
           <div className="spacer"></div>
-          <a href={headerData.repository.url} target="_blank" rel="noopener noreferrer">
-            <img className="logo" alt={headerData.alt} height={headerData.repository.height}
-                 src={headerData.repository.logo}/>
+          <a href={props.data.repository && props.data.repository.url} target="_blank" rel="noopener noreferrer">
+            <img className="logo" alt={props.data.alt}
+                 height={props.data.repository && props.data.repository.height}
+                 src={props.data.repository && props.data.repository.logo}/>
           </a>
         </div>
       </div>
