@@ -7,10 +7,10 @@ import { updateDashboard } from './uv_dashboard.actions';
 import UvDashboardApi from './uv_dashboard.api';
 import UV_DASHBOARD from './uv_dashboard.constants';
 
-import * as appData from './../../shared/uv_app-data.json';
+import * as appData from '../../shared/uv_app-data.json';
 
-import barChartConfig from './../../components/uv_bar-chart/uv_bar-chart.json';
-import angularGaugeConfig from './../../components/uv_angular-gauge/uv_angular-gauge.json';
+import barChartConfig from '../../components/uv_bar-chart/uv_bar-chart.json';
+import angularGaugeConfig from '../../components/uv_angular-gauge/uv_angular-gauge.json';
 
 const defaultComponentId = 0;
 

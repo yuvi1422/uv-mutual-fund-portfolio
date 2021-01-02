@@ -1,11 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import UvHeader from './../../components/uv_header/uv_header';
-import UVPie from './../../components/uv_pie/uv_pie';
-import UVBarChart from './../../components/uv_bar-chart/uv_bar-chart';
-import UvAngularGauge from './../../components/uv_angular-gauge/uv_angular-gauge';
-import UvNumber from './../../components/uv_number/uv_number';
+import UVPie from '../../components/uv_pie/uv_pie';
+import UVBarChart from '../../components/uv_bar-chart/uv_bar-chart';
+import UvAngularGauge from '../../components/uv_angular-gauge/uv_angular-gauge';
+import UvNumber from '../../components/uv_number/uv_number';
 import { useSelector } from 'react-redux';
 import { UVRootState } from '../../root.reducer';
 
@@ -30,9 +29,6 @@ function UvDashboard() {
   return (
     <div className="uv-dashboard" id="uv-dashboard">
       <Container>
-        <Row className="uv-row">
-         <UvHeader></UvHeader>
-        </Row>
         <Row className="uv-container uv-row">
           <Col md={6} xs={12}>
             <UVPie componentId={0}
