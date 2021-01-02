@@ -11,7 +11,6 @@ import am4themes_material from "@amcharts/amcharts4/themes/material";
 import './uv_pie.css';
 import { useDispatch } from 'react-redux';
 import { selectedPieSlice } from './uv_pie.actions';
-import { getProcessedPieData } from '../../modules/dashboard/uv_dashboard.saga';
 import { UVPieProps } from '../../shared/Types';
 
 am4core.useTheme(am4themes_material);
@@ -23,11 +22,8 @@ function UVPie(props: UVPieProps) {
 
   const chart = useRef({});
 
-  let pieConfig = props.config;
-  let pieData = props.data.categories;
-
   useEffect(() => {
-    if(!pieConfig || !pieData) {
+    if(!props.config || !props.categories) {
       return;
     }
 
@@ -35,22 +31,21 @@ function UVPie(props: UVPieProps) {
 
     uvChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    uvChart.data = getProcessedPieData(pieData, props.valueType);
-
+    uvChart.data = props.categories;
       const series = uvChart.series.push(new am4charts.PieSeries3D());
 
       series.dataFields.value = 'value';
-      series.dataFields.category = pieConfig.series.categoryKey;
-      series.slices.template.propertyFields.fill = pieConfig.series.fillColorKey;
+      series.dataFields.category = props.config.series.categoryKey;
+      series.slices.template.propertyFields.fill = props.config.series.fillColorKey;
       series.slices.template.propertyFields.isActive = 'isActive';
       series.slices.template.propertyFields.id = 'id';
 
-      const cursorStyle = uvObject.getObjectByPath(pieConfig, 'series.slices.template', 'cursorStyle', null);
+      const cursorStyle = uvObject.getObjectByPath(props.config, 'series.slices.template', 'cursorStyle', null);
 
       if(cursorStyle && cursorStyle === 'pointer') {
         series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
       }
-      uvChart.innerRadius = am4core.percent(uvObject.getObjectByPath(pieData, 'config.chart', 'innerRadiusPercent', 0));
+      uvChart.innerRadius = am4core.percent(uvObject.getObjectByPath(props.categories, 'config.chart', 'innerRadiusPercent', 0));
 
       series.slices.template.events.on('hit', ((ev) => {
         const sliceIndex = parseInt(ev.target.id);
@@ -68,17 +63,17 @@ function UVPie(props: UVPieProps) {
         series.labels.template.disabled = true;
       }
 
-      series.labels.template.wrap = uvObject.getObjectByPath(pieConfig, 'label', 'wrap', false);
-      series.labels.template.width = uvObject.getObjectByPath(pieConfig, 'label', 'width', 100);
+      series.labels.template.wrap = uvObject.getObjectByPath(props.config, 'label', 'wrap', false);
+      series.labels.template.width = uvObject.getObjectByPath(props.config, 'label', 'width', 100);
       // default startAngle is -90 and default endAngle is 270
-      series.hiddenState.properties.endAngle = uvObject.getObjectByPath(pieData, 'config.series.animation', 'endAngle', 270);
+      series.hiddenState.properties.endAngle = uvObject.getObjectByPath(props.categories, 'config.series.animation', 'endAngle', 270);
 
       chart.current = uvChart;
 
     return () => {
       uvChart.dispose();
     };
-  }, [props.componentId, props.valueType, dispatch, pieConfig, pieData]);
+  }, [props.componentId, props.config, props.categories, dispatch]);
 
   return (
     <div className="pie-container">

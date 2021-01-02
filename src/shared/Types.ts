@@ -82,8 +82,7 @@ export type UVPieData = {
 export type UVPieProps = {
   componentId: number;
   config: UVPieConfig;
-  valueType: string;
-  data: UVPieData;
+  categories: UVCategory[];
 }
 
 export type UVBarChartConfig = {

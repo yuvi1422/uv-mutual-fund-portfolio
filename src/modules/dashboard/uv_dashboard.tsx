@@ -37,8 +37,7 @@ function UvDashboard() {
           <Col md={6} xs={12}>
             <UVPie componentId={0}
                    config={uvPieData[0].config}
-                   valueType = {'current'}
-                   data={uvPieData[0].data}></UVPie>
+                   categories={uvPieData[0].data.categories}></UVPie>
           </Col>
           <Col md={6} xs={12}>
               <UvBarChart componentId={0}

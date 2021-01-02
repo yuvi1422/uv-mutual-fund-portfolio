@@ -71,7 +71,7 @@ function* initDashboardSaga() {
       config: response.data.pieConfig,
       data: {
         selectionIndex: 0,
-        categories: response.data.categories
+       categories: getProcessedPieData(response.data.categories, 'current')
       }
     }],
     barCharts: [{
