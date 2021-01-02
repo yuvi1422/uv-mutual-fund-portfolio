@@ -5,7 +5,7 @@ const initialState = {
   data: {}
 };
 
-const uvHeaderReducer = (state=initialState, action: UVAction) => {
+const UVHeaderReducer = (state=initialState, action: UVAction) => {
   switch (action.type) {
     case UV_HEADER.LOAD:
       return {
@@ -17,4 +17,4 @@ const uvHeaderReducer = (state=initialState, action: UVAction) => {
   }
 }
 
-export default uvHeaderReducer;
+export default UVHeaderReducer;

@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 import * as appData from './shared/uv_app-data.json';
-import UvHeader from './components/uv_header/uv_header';
-import UvDashboard from './modules/uv_dashboard/uv_dashboard';
+import UVHeader from './components/uv_header/uv_header';
+import UVDashboard from './modules/uv_dashboard/uv_dashboard';
 
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
     <div className={'App uv-font-' + (appData.config.font ? appData.config.font: 'medium')}>
       <Container>
         <Row className="uv-row">
-         <UvHeader></UvHeader>
+         <UVHeader></UVHeader>
         </Row>
-      <UvDashboard ></UvDashboard>
+      <UVDashboard ></UVDashboard>
       </Container>
     </div>
   );

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import uvHeaderReducer from './components/uv_header/uv_header.reducers';
-import UvDashboardReducer from './modules/uv_dashboard/uv_dashboard.reducer';
+import UVHeaderReducer from './components/uv_header/uv_header.reducers';
+import UVDashboardReducer from './modules/uv_dashboard/uv_dashboard.reducer';
 
 export const rootReducer = combineReducers({
-  header: uvHeaderReducer,
-  dashboard: UvDashboardReducer
+  header: UVHeaderReducer,
+  dashboard: UVDashboardReducer
 });
 
 export type UVRootState = ReturnType<typeof rootReducer>

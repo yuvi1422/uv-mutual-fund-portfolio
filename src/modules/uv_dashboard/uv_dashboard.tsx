@@ -8,7 +8,7 @@ import UvNumber from '../../components/uv_number/uv_number';
 import { useSelector } from 'react-redux';
 import { UVRootState } from '../../root.reducer';
 
-function UvDashboard() {
+function UVDashboard() {
 
   let uvNumberData = useSelector((state: UVRootState) => {
     return state.dashboard.numbers;
@@ -71,4 +71,4 @@ function UvDashboard() {
   );
 }
 
-export default UvDashboard;
+export default UVDashboard;

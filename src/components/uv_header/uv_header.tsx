@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import './uv_header.css';
 import { UVRootState } from '../../root.reducer';
 
-function UvHeader() {
+function UVHeader() {
   let headerData = useSelector((state: UVRootState) => {
     return state.header.data;
   });
@@ -28,4 +28,4 @@ function UvHeader() {
   );
 }
 
-export default memo(UvHeader);
+export default memo(UVHeader);

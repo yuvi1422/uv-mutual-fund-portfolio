@@ -38,7 +38,7 @@ const initialState = {
   numbers: [] as UVNumberProps []
 };
 
-const UvDashboardReducer = (state = initialState, action: UVAction)=> {
+const UVDashboardReducer = (state = initialState, action: UVAction)=> {
   let tmpBarCharts, tmpAngularGuages, selectedCategory, selectedBarChart;
   switch(action.type) {
     case UV_DASHBOARD.UPDATE:
@@ -78,4 +78,4 @@ const UvDashboardReducer = (state = initialState, action: UVAction)=> {
   }
 };
 
-export default UvDashboardReducer;
+export default UVDashboardReducer;

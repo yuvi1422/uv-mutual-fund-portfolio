@@ -5,8 +5,8 @@ const getDashboardData = ()=> {
   return axios.get(dashboardData.config.apis.dashboard.url);
 }
 
-const UvDashboardApi = {
+const UVDashboardApi = {
   getDashboardData: getDashboardData
 };
 
-export default UvDashboardApi;
+export default UVDashboardApi;

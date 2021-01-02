@@ -4,7 +4,7 @@ import UvNumberPojo from '../../components/uv_number/uv_number.pojo';
 import { UVAmount, UVCategory, UVItem, UVNumberProps } from '../../shared/Types';
 import { updateDashboard } from './uv_dashboard.actions';
 
-import UvDashboardApi from './uv_dashboard.api';
+import UVDashboardApi from './uv_dashboard.api';
 import UV_DASHBOARD from './uv_dashboard.constants';
 
 import * as appData from '../../shared/uv_app-data.json';
@@ -14,7 +14,7 @@ import angularGaugeConfig from '../../components/uv_angular-gauge/uv_angular-gau
 
 const defaultComponentId = 0;
 
-export function* UvDashboardSaga() {
+export function* UVDashboardSaga() {
   yield takeEvery(UV_DASHBOARD.INIT, initDashboardSaga);
 }
 
@@ -25,7 +25,7 @@ function* initDashboardSaga() {
     categories: [] as UVCategory[]
   };
 
-  let response = yield call(UvDashboardApi.getDashboardData);
+  let response = yield call(UVDashboardApi.getDashboardData);
 
   let largestCategoryIndex = 0;
   let largestItemIndexes: number[] = [];
