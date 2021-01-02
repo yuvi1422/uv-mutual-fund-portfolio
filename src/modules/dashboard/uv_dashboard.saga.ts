@@ -42,7 +42,7 @@ function* initDashboardSaga() {
         expenseRatio: currentCategory.expenseRatio
       },
       selectionIndex: 0,
-      items: currentCategory.items
+      items: getProcessedBarChartData(currentCategory.items, 'current', true) as UVItem[]
     }
     let categoryTotal = currentCategory.items.reduce((itemAccumulator: number, currentItem: UVItem, itemIndex: number, items: UVItem[])=> {
       if(itemIndex > 0 && currentItem.current.amount > items[itemIndex-1].current.amount) {
@@ -135,7 +135,8 @@ function getCategoryTotal(category: UVCategory, valueType: string) {
 /**
  * @description Function to get processed pie chart data.
  *  - Only Categories with positive data will be displayed.
- * @param rawPieData - Raw pie chart data
+ * @param categories - Categories of Pie Chart
+ * @param valueType - Value Type (current or initial)
  */
 const getProcessedPieData = (categories: UVCategory[], valueType: string) => {
   const processedCategories = [];
@@ -148,7 +149,28 @@ const getProcessedPieData = (categories: UVCategory[], valueType: string) => {
   return processedCategories;
 }
 
+/**
+ * @description Function to get processed bar chart data.
+ * @param items - Items of Bar Chart
+ * @param valueType - Value Type (current or initial)
+ * @param isAmountOnly - true if amount has to be used directly.
+ */
+function getProcessedBarChartData(items: UVItem[], valueType: string, isAmountOnly: boolean) {
+  for (const item of items) {
+    const amountObj = item[valueType] as UVAmount;
+    if(!item) {
+      console.error('Data format is incorrect for bar chart');
+      return;
+    }
+    if(isAmountOnly) {
+      item.value = amountObj.amount;
+    } else {
+      item.value = amountObj.price * amountObj.quantity;
+    }
+  }
+  return items;
+}
+
 export {
-  mapNumberComponents,
-  getProcessedPieData
+  mapNumberComponents
 }

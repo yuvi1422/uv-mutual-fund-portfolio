@@ -42,7 +42,7 @@ function UvDashboard() {
           <Col md={6} xs={12}>
               <UvBarChart componentId={0}
                           config={uvBarChartData[0].config}
-                          data={uvBarChartData[0].data}></UvBarChart>
+                          items={uvBarChartData[0].data}></UvBarChart>
           </Col>
         </Row>
         <Row className="uv-row">
