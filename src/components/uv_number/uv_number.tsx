@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 
 import './uv_number.css';
-import { UvNumberProps } from '../../shared/Types';
+import { UVNumberProps } from '../../shared/Types';
 
-function UvNumber(props: UvNumberProps) {
+function UVNumber(props: UVNumberProps) {
   return (
     <div className = {'uv-number-container ' + ((props.config && props.config.class) ? props.config.class : '')}>
       <div className={'bounce-top uv-primary-text uv-text-center align-middle ' +
@@ -21,4 +21,4 @@ function UvNumber(props: UvNumberProps) {
   )
 }
 
-export default memo(UvNumber);
+export default memo(UVNumber);

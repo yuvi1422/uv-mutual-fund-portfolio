@@ -1,0 +1,9 @@
+{
+  "config": {
+    "apis": {
+      "dashboard": {
+        "url": "https://demo1926272.mockable.io/getInvestments"
+      }
+    }
+  }
+}

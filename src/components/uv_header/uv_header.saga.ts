@@ -7,6 +7,6 @@ function* updateHeader(pieSlice: UVAction) {
   yield 'Header Updated';
 }
 
-export function* uvHeaderSaga() {
+export function* UVHeaderSaga() {
   yield takeEvery(UV_HEADER.UPDATE, updateHeader);
 }

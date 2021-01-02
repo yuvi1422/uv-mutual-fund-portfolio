@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -9,7 +9,7 @@ import { UVAngularGaugeConfig, UVAngularGaugeData } from './../../shared/Types';
 
 am4core.useTheme(am4themes_animated);
 
-function UvAngularGauge(props: any) {
+function UVAngularGauge(props: any) {
 
   const chart = useRef(null);
 
@@ -32,7 +32,7 @@ function UvAngularGauge(props: any) {
     return null;
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
 
     // Hide the gauge when score, config or data is not available.
     if(!score || !config || !data) {
@@ -150,4 +150,4 @@ function UvAngularGauge(props: any) {
     </div>
   )
 }
-export default UvAngularGauge;
+export default UVAngularGauge;

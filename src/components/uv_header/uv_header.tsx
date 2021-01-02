@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import './uv_header.css';
 import { UVRootState } from '../../root.reducer';
 
-function UvHeader() {
+function UVHeader() {
   let headerData = useSelector((state: UVRootState) => {
     return state.header.data;
   });
@@ -13,7 +13,9 @@ function UvHeader() {
     <div className="uv-header-container">
       <div id="headerDiv">
         <div className= {'toolbar ' + (headerData.theme ? headerData.theme : 'primary')} role="banner">
-          <img width={headerData.logo.width} alt={headerData.alt} src={headerData.logo.logo}/>
+          <a href={headerData.primaryWebsite} target="_blank" rel="noopener noreferrer">
+            <img width={headerData.logo.width} alt={headerData.alt} src={headerData.logo.logo}/>
+          </a>
           <span>{headerData.title}</span>
           <div className="spacer"></div>
           <a href={headerData.repository.url} target="_blank" rel="noopener noreferrer">
@@ -26,4 +28,4 @@ function UvHeader() {
   );
 }
 
-export default memo(UvHeader);
+export default memo(UVHeader);

@@ -1,5 +1,5 @@
 import UV_HEADER from './uv_header.constants';
-import UVHeaderConfig from './uv_header.interface.config';
+import { UVHeaderConfig } from './../../shared/Types';
 
 const loadHeader = (actionConfig: UVHeaderConfig) => {
   return {
