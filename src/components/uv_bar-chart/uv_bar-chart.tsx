@@ -16,26 +16,26 @@ function UVBarChart(props: UVBarChartProps) {
 
   const chart = useRef({});
 
+  function getChartDimensions(chartDimension ?: string) {
+    switch(chartDimension) {
+      case '3D':
+        return {
+          chartType: am4charts.XYChart3D,
+          columnType: new am4charts.ColumnSeries3D()
+        }
+      default:
+        return {
+          chartType: am4charts.XYChart,
+          columnType: new am4charts.ColumnSeries()
+        }
+    }
+  };
+
   useEffect(() => {
 
     if(!props.config || !props.items) {
       return;
     }
-
-    function getChartDimensions(chartDimension ?: string) {
-      switch(chartDimension) {
-        case '3D':
-          return {
-            chartType: am4charts.XYChart3D,
-            columnType: new am4charts.ColumnSeries3D()
-          }
-        default:
-          return {
-            chartType: am4charts.XYChart,
-            columnType: new am4charts.ColumnSeries()
-          }
-      }
-    };
 
     const uvChart: am4charts.XYChart = am4core.create('barChartDiv', getChartDimensions(props.config.dimension).chartType);
     uvChart.padding(40, 40, 40, 40);
