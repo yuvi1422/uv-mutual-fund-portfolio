@@ -11,7 +11,7 @@ import { UVItem } from '../../shared/Types';
 import { barChartColumnSelected } from './uv_bar-chart.actions';
 import uvObject from '@uv-tech/util/lib/uv-object';
 
-function UvBarChart(props: any) {
+function UVBarChart(props: any) {
   const dispatch = useDispatch();
 
   const chart = useRef({});
@@ -121,4 +121,4 @@ function UvBarChart(props: any) {
   );
 }
 
-export default memo(UvBarChart);
+export default memo(UVBarChart);

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import UvHeader from './../../components/uv_header/uv_header';
 import UVPie from './../../components/uv_pie/uv_pie';
-import UvBarChart from './../../components/uv_bar-chart/uv_bar-chart';
+import UVBarChart from './../../components/uv_bar-chart/uv_bar-chart';
 import UvAngularGauge from './../../components/uv_angular-gauge/uv_angular-gauge';
 import UvNumber from './../../components/uv_number/uv_number';
 import { useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ function UvDashboard() {
     return state.dashboard.pieCharts;
   });
 
-  let uvBarChartData = useSelector((state: UVRootState) => {
+  let UVBarChartData = useSelector((state: UVRootState) => {
     return state.dashboard.barCharts;
   });
 
@@ -40,9 +40,9 @@ function UvDashboard() {
                    categories={uvPieData[0].data.categories}></UVPie>
           </Col>
           <Col md={6} xs={12}>
-              <UvBarChart componentId={0}
-                          config={uvBarChartData[0].config}
-                          items={uvBarChartData[0].data}></UvBarChart>
+              <UVBarChart componentId={0}
+                          config={UVBarChartData[0].config}
+                          items={UVBarChartData[0].data}></UVBarChart>
           </Col>
         </Row>
         <Row className="uv-row">
