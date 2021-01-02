@@ -5,7 +5,7 @@ export type UVCategoryConfig = {
   value: string;
   color: string;
   expenseRatio: number;
-}
+};
 
 export type UVCategory = {
   // Key will be string and value will be anything of mentioned types.
@@ -54,36 +54,41 @@ export type UVHeaderConfig = {
   title: string;
   theme ?: string;
   alt ?: string;
+  primaryWebsite ?: string;
   logo ?: {
     logo : string;
-    alt ?: string;
     width ?: string;
   }
   repository ?: {
     name ?: string;
     logo: string;
     url: string;
+    height ?: string;
   }
+}
+
+export type UVHeaderProps = {
+  data : UVHeaderConfig
 };
 
 export type UVDashboardType = {
   config ?: any;
   uvNumbers: UVNumberProps[]
-}
+};
 
 export type UVPieConfig = {
   series: any;
-}
+};
 
 export type UVPieData = {
   categories: UVCategory[]
-}
+};
 
 export type UVPieProps = {
   componentId: number;
   config: UVPieConfig;
   categories: UVCategory[];
-}
+};
 
 export type UVBarChartConfig = {
   dimension ?: string;
@@ -91,13 +96,13 @@ export type UVBarChartConfig = {
   categoryShortKey: string;
   valueAxis ?: object;
   series ?: object;
-}
+};
 
 export type UVBarChartProps = {
   componentId: number;
   config: UVBarChartConfig;
   items: UVItem[];
-}
+};
 
 export type UVAngularGaugeConfig = {
   chartMax: number;
@@ -143,4 +148,4 @@ export type UVNumberProps = {
   title: number;
   label: string;
   subtitle?: string;
-}
+};
