@@ -93,6 +93,12 @@ export type UVBarChartConfig = {
   series ?: object;
 }
 
+export type UVBarChartProps = {
+  componentId: number;
+  config: UVBarChartConfig;
+  items: UVItem[];
+}
+
 export type UVAngularGaugeConfig = {
   chartMax: number;
   chartMin: number;

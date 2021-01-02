@@ -7,11 +7,11 @@ import { useDispatch } from 'react-redux';
 import uvDevice from '@uv-tech/util/lib/uv-device';
 
 import './uv_bar-chart.css';
-import { UVItem } from '../../shared/Types';
+import { UVItem, UVBarChartProps } from '../../shared/Types';
 import { barChartColumnSelected } from './uv_bar-chart.actions';
 import uvObject from '@uv-tech/util/lib/uv-object';
 
-function UVBarChart(props: any) {
+function UVBarChart(props: UVBarChartProps) {
   const dispatch = useDispatch();
 
   const chart = useRef({});
@@ -22,7 +22,7 @@ function UVBarChart(props: any) {
       return;
     }
 
-    function getChartDimensions(chartDimension: string) {
+    function getChartDimensions(chartDimension ?: string) {
       switch(chartDimension) {
         case '3D':
           return {
@@ -96,6 +96,7 @@ function UVBarChart(props: any) {
 
     uvChart.data = props.items;
 
+    // Select item with max value by default.
     let selectedColumnIndex = 0;
     uvChart.data.reduce(function(prev: UVItem, current: UVItem, columnIndex: number) {
       if(current.value > prev.value) {
