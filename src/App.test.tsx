@@ -1,9 +1,16 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { shallow } from 'enzyme';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import App from './App';
+import Header from './components/uv_header/uv_header';
+
+describe('App Component', ()=> {
+  it('renders without crashing', ()=> {
+    shallow(<App />);
+  });
+  it('Contains 1 Header component', ()=> {
+    var wrapper = shallow(<App />);
+    expect(wrapper.find(Header)).toHaveLength(1);
+  });
+})
+
